@@ -1,0 +1,7 @@
+Bourses d’études (6) => bourses
+o id
+o lien
+o dateopen
+o dateclose
+o titre
+o corps

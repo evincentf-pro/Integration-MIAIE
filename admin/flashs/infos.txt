@@ -1,0 +1,5 @@
+Flash Infos(4) => flashinfos
+o id
+o img
+o appeltitre
+o corps

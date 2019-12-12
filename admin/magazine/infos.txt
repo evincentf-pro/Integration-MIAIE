@@ -1,0 +1,5 @@
+Magazine (4) => magazines
+o id
+o img
+o appeltitre
+o corps

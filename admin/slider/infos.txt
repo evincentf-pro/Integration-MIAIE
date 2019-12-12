@@ -1,0 +1,10 @@
+alaune(9) => alaune
+o id
+o Img
+o appeltitre
+o titre
+o legende
+o chapeau
+o corps
+o auteur
+o datepubli

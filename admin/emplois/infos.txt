@@ -1,0 +1,7 @@
+Offres d’emploi (6) => offresemplois
+o id
+o lien
+o dateopen
+o dateclose
+o titre
+o corps

@@ -1,0 +1,5 @@
+Texte Communautaire (4) => textcommunautaire
+o id
+o titre
+o lien
+o img

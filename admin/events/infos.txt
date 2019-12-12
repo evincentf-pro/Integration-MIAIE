@@ -1,0 +1,10 @@
+Plus d’infos (9) => plusinfos
+o id
+o Img
+o appeltitre
+o titre
+o legende
+o chapeau
+o corps
+o auteur
+o datepubli

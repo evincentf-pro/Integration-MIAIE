@@ -1,0 +1,6 @@
+Brèves(5) => breves
+o id
+o titre
+o corps
+o couleur
+o datepubli

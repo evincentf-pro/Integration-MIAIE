@@ -1,0 +1,4 @@
+Galerie (3) => galeries
+o id
+o dirname
+o img

@@ -1,0 +1,10 @@
+Actu(9) => actus
+o id
+o Img
+o appeltitre
+o titre
+o legende
+o chapeau
+o corps
+o auteur
+o datepubli
