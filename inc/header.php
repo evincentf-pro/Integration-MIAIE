@@ -132,11 +132,12 @@ error_reporting(~E_NOTICE);
                   </li>
 
                   <!-- Missions -->
-                  <li <?= ($page === 'historique' or $page === 'organigramme') ? $class : "" ?>>
+                  <li <?= ($page === 'historique' or $page === 'organigramme' or $page === 'cabinet') ? $class : "" ?>>
                     <a href="#">Missions</a>
                     <ul class="sub-menu">
                       <li <?= ($page === 'historique') ? $class : "" ?>><a href="historique">Attributions</a></li>
                       <li <?= ($page === 'organigramme') ? $class : "" ?>><a href="organigramme">Organigrame</a></li>
+                      <li <?= ($page === 'cabinet') ? $class : "" ?>><a href="organigramme">Organigrame</a></li>
                     </ul>
                   </li>
 
@@ -169,6 +170,9 @@ error_reporting(~E_NOTICE);
                       <li <?= ($page === 'projets') ? $class : "" ?>>
                         <a href="Projets-specifiques">Projets Spécifiques</a>
                       </li>
+                      <li <?= ($page === 'projets') ? $class : "" ?>>
+                        <a href="#">M.A.E.P</a>
+                      </li>
                     </ul>
                   </li>
 
@@ -187,6 +191,9 @@ error_reporting(~E_NOTICE);
                       </li>
                       <li <?= ($page === 'documentation') ? $class : "" ?>>
                         <a href="archives">Archives</a>
+                      </li>
+                      <li <?= ($page === 'Statistiques') ? $class : "" ?>>
+                        <a href="statistiques">Statistiques</a>
                       </li>
                     </ul>
                   </li>
