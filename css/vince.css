@@ -1,3 +1,7 @@
+html {
+  scroll-behavior: smooth;
+}
+
 #banniere_description {
   position: absolute;
   bottom: 0;

@@ -137,7 +137,6 @@ error_reporting(~E_NOTICE);
                     <ul class="sub-menu">
                       <li <?= ($page === 'historique') ? $class : "" ?>><a href="historique">Attributions</a></li>
                       <li <?= ($page === 'organigramme') ? $class : "" ?>><a href="organigramme">Organigrame</a></li>
-                      <li <?= ($page === 'cabinet') ? $class : "" ?>><a href="organigramme">Organigrame</a></li>
                     </ul>
                   </li>
 

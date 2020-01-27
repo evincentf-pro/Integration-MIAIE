@@ -3,6 +3,12 @@ $page = 'historique';
 require 'inc/header.php';
 ?>
 
+<style>
+    html {
+        scroll-behavior: smooth;
+    }
+</style>
+
 <br>
 <style>
     .title {
@@ -25,10 +31,34 @@ require 'inc/header.php';
             <br>
             <div style="margin-left: 50px">
                 <ol>
-                    <li>Historique</li>
-                    <li>Les ministres de l'Intégration Africaine</li>
-                    <li>Les services rattachés</li>
-                    <li>Les directions opérationnelles</li>
+                    <a href="#historique">
+                        <li>Historique
+                        </li>
+                    </a>
+                    <a href="#ministres">
+                        <li>Les ministres de l'Intégration Africaine depuis 2005</li>
+                    </a>
+                    <a href="#cabinet">
+                        <li>Le Cabinet</li>
+                    </a>
+                    <a href="#inspection">
+                        <li>L'Inspection Générale</li>
+                    </a>
+                    <a href="#services">
+                        <li>Les Services Rattachés au Cabinet</li>
+                    </a>
+                    <a href="#directions">
+                        <li>Les Directions Rattachées au Cabinet</li>
+                    </a>
+                    <a href="#structures">
+                        <li>Les Structures sous tutelle</li>
+                    </a>
+                    <a href="#organes">
+                        <li>Les Organes spécialisés</li>
+                    </a>
+                    <!-- <a href="seminaires">
+                        <li>Les Séminaires bilans</li>
+                    </a> -->
                 </ol>
 
             </div>
@@ -38,7 +68,7 @@ require 'inc/header.php';
 
 
     <section id=" main" class="medium-8 large-8 columns" style="color: black">
-        <h1 class="title">1. L'HISTOIRE DU MINISTERE DE L'INTEGRATION</h1>
+        <h1 class="title" id="historique">1. L'HISTOIRE DU MINISTERE DE L'INTEGRATION DEPUIS 2005</h1>
 
         <p>
             <img src="images/blog/plateau.jpg" alt="" width="100%">
@@ -64,39 +94,39 @@ require 'inc/header.php';
 
         <div class="section">
             <div class="divider"></div>
-            <h1 class="title">2. LES MINISTRES DE L'INTEGRATION AFRICAINE</h1>
+            <h1 class="title" id="ministres">2. LES MINISTRES DE L'INTEGRATION AFRICAINE DEPUIS 2005</h1>
             <div class="divider"></div>
             <div class="divider"></div>
             <div class="row">
                 <div class="medium-6 large-6 columns" title="Ally Coulibaly">
                     <img class="alignleft" src="images/people/Ally-Coulibaly.jpg" alt="Ally Coulibaly">
-                    <h2 class="">Mr Ally COULIBALY</h2>
+                    <h2 class="">M. Ally COULIBALY</h2>
                     <p style="color:green">Depuis le 04 Juin 2012</p>
                 </div>
                 <div class="medium-6 large-6 columns" title="Adama Bictogo">
                     <img class="alignleft" src="images/people/Adama-Bictogo.jpg" alt="Adama Bictogo">
-                    <h2 class="">Mr Adama BICTOGO</h2>
+                    <h2 class="">M. Adama BICTOGO</h2>
                     <p style=" color:green">Juin 2011 -Juin 2012 <br> <br> <br></p>
                 </div>
                 <div class="medium-6 large-6 columns" title="Gervais Kacou">
                     <img class="alignleft" alt="" src="images/people/Gervais-Kacou.jpg" alt="Gervais Kacou">
-                    <h2 class="">Mr Gervais KACOU</h2>
+                    <h2 class="">M. Gervais KACOU</h2>
                     <p style="color:green">Mars 2010 - Juin 2011 <br> <br> <br></p>
                 </div>
                 <div class="medium-6 large-6 columns" title="Amadou kone">
                     <img class="alignleft" alt="" src="images/people/Amadou-kone.jpg" alt="Amadou kone">
-                    <h2 class="">Mr Amadou KONE</h2>
+                    <h2 class="">M. Amadou KONE</h2>
                     <p style="color:green">Avril 2007 - Février 2010 <br> <br> <br> </p>
                 </div>
                 <div class="medium-6 large-5 columns" title="Mabri Toikeusse">
                     <img class="alignleft" alt="" src="images/people/Mabri-Toikeusse.jpg" alt="Mabri Toikeusse">
-                    <h2 class="">Mr Mabri TOIKEUSSE</h2>
+                    <h2 class="">M. Mabri TOIKEUSSE</h2>
                     <p style="color:green"> Déc 2005 - Avril 2007 <br> <br> </p>
                     <div class="divider"></div>
                 </div>
                 <div class="medium-6 large-6 columns" title="Mabri Toikeusse">
                     <img class="alignleft" alt="" src="images/people/Mel-EG-Théodore.jpg" alt="Mel EG Théodore">
-                    <h2 class="">Mr Mel EG Théodore</h2>
+                    <h2 class="">M. Mel EG Théodore</h2>
                     <p style="color:green">Mars 2003 - Déc 2005 <br> <br> <br> </p>
                 </div>
             </div>
@@ -108,18 +138,155 @@ require 'inc/header.php';
 
         <div class="section">
             <div class="divider"></div>
-            <h1 class="title">3. LES SERVICES RATTACHEES</h1>
+            <h1 class="title" id="cabinet">3. LE CABINET DU MINISTRE ALLY COULIBALY</h1>
+            <div class="divider"></div>
+            <div class="divider"></div>
+            <div class="row">
+                <div class="medium-6 large-6 columns" title="DIAMOUTENE ALASSANE ZIE">
+                    <img class="alignleft" src="images/2012/cabinet/dircab1.jpg" alt="DIAMOUTENE ALASSANE ZIE" width="92">
+                    <h3 class="">M. DIOMOUTENE ALASSANE ZIE</h3>
+                    <p style="color:green">Directeur de cabinet</p>
+                </div>
+                <div class="medium-6 large-6 columns" title="SYLLA kalilou">
+                    <img class="alignleft" src="images/2012/cabinet/dircab2.jpg" alt="SYLLA kalilou" width="92">
+                    <h3 class="">M. SYLLA KALILOU</h3>
+                    <p style=" color:green">Directeur de cabinet adjoint <br> <br> <br></p>
+                </div>
+                <div class="medium-6 large-6 columns" title="Aminata OUATTARA COULIBALY">
+                    <img class="alignleft" alt="" src="images/2012/cabinet/chefcab.jpg" alt="Aminata OUATTARA COULIBALY">
+                    <h3 class="">Me. Aminata OUATTARA COULIBALY</h3>
+                    <p style="color:green">Chef de cabinet <br> <br> <br></p>
+                </div>
+                <div class="medium-6 large-6 columns" title="MANGUE COULIBLAY Rabet">
+                    <img class="alignleft" alt="" src="images/2012/cabinet/ChefSecretariat.jpg" alt="MANGUE COULIBLAY Rabet">
+                    <h3 class="">Me. MANGUE COULIBLAY Rabet</h3>
+                    <p style="color:green">chef de secrétariat particulier<br> <br> <br></p>
+                </div>
+
+                <hr>
+
+                <div class="medium-6 large-6 columns" title="Yolande TANO">
+                    <img class="alignleft" src="images/2012/cabinet/yolande.jpg" alt="Yolande TANO">
+                    <h3 class="">Pr. Yolande TANO</h2>
+                        <p style="color:green">Conseiller spécial</p>
+                </div>
+                <div class="medium-6 large-6 columns" title="OGNI Kanga">
+                    <img class="alignleft" src="images/2012/cabinet/ogni.jpg" alt="OGNI Kanga">
+                    <h3 class="">Pr. OGNI Kanga</h2>
+                        <p style=" color:green">C.T chargé des questions de migratoires<br> <br> <br></p>
+                </div>
+                <div class="medium-6 large-6 columns" title="Khady DIALLO">
+                    <img class="alignleft" alt="" src="images/2012/cabinet/khady.jpg" alt="Khady DIALLO">
+                    <h3 class="">Me. Khady DIALLO</h2>
+                        <p style="color:green">C.T en communication<br> <br> <br></p>
+                </div>
+                <div class="medium-6 large-6 columns" title="Valerie OKA">
+                    <img class="alignleft" alt="" src="images/2012/cabinet/valerie.jpg" alt="Valerie OKA">
+                    <h3 class="">M. Valerie OKA</h2>
+                        <p style="color:green">C.T aux affaires culturelles<br> <br> <br> </p>
+                </div>
+                <div class="medium-6 large-5 columns" title="Anzoumana OUATTARA">
+                    <img class="alignleft" alt="" src="images/2012/cabinet/azoumana.jpg" alt="Anzoumana OUATTARA">
+                    <h3 class="">M. Anzoumana OUATTARA</h3>
+                    <p style="color:green"> C.T aux affaires politiques <br></p>
+                    <div class="divider"></div>
+                </div>
+                <div class="medium-6 large-6 columns" title="">
+
+                </div>
+
+            </div>
+        </div>
+
+        <div class="divider-1"></div>
+        <div class="divider"></div>
+        <div class="divider"></div>
+
+
+        <div class="section">
+            <div class="divider"></div>
+            <h1 class="title" id="inspection">4. L'INSPECTION GENERALE</h1>
+            <div class="divider"></div>
+            L'inspection générale est représentée par:
+            <div class="divider"></div>
+            <div class="row">
+                <div class="medium-12 large-12 columns" title="TRAORE Ousmane">
+                    <img class="alignleft" src="images/2012/inspection/traore.jpg" alt="TRAORE Ousmane">
+                    <h3 class="">M. TRAORE Ousmane</h3>
+                    <p style="color:green">Inspecteur général</p>
+                </div>
+                <!-- <div class="medium-12 large-12 columns" title="Adama Bictogo">
+                    <img class="alignleft" src="images/people/Adama-Bictogo.jpg" alt="Adama Bictogo">
+                    <h2 class="">M. Adama BICTOGO</h2>
+                    <p style=" color:green">Juin 2011 -Juin 2012 <br> <br> <br></p>
+                </div>
+                <div class="medium-6 large-6 columns" title="Gervais Kacou">
+                    <img class="alignleft" alt="" src="images/people/Gervais-Kacou.jpg" alt="Gervais Kacou">
+                    <h2 class="">M. Gervais KACOU</h2>
+                    <p style="color:green">Mars 2010 - Juin 2011 <br> <br> <br></p>
+                </div> -->
+            </div>
+        </div>
+
+
+        <div class="divider"></div>
+        <div class="divider"></div>
+        <div class="divider-1"></div>
+        <div class="divider"></div>
+        <div class="divider"></div>
+
+        <div class="section">
+            <div class="divider"></div>
+            <h1 class="title" id="services">5. LES SERVICES RATTACHES AU CABINET</h1>
             <div class="divider"></div>
             <ul class="list">
-                <li class="icon-right-4">Le Service de Communication et des relations Publiques</li>
-                <li class="icon-right-4">Le Service de Planification</li>
+                <li class="icon-right-4">Le Service de Communication et des Relations Publiques</li>
+                <li class="icon-right-4">Le Service de Planification et Statistique</li>
                 <li class="icon-right-4">Le Services Conférences et Voyage</li>
                 <li class="icon-right-4">Le Service Informatique, de la Documentation et des Archives</li>
-                <li class="icon-right-4">L' Inspection Générale</li>
                 <li class="icon-right-4">Le Comité d'Ecoute des Ressortissants et Populations</li>
-                <li class="icon-right-4">Le Comité d'agrémént au Schema de libéralisations des échanges de la CEDEAO</li>
-                <li class="icon-right-4">La Commission Nationale de Suivi des Accords de Partenariat economique(APE)</li>
-                <li class="icon-right-4">La Commission Nationale d'Agréments des Produits au Schéma de Libéralisation des Echanges de la CEDEAO </li>
+                <li class="icon-right-4">Le Comité d'Agrémént au Schema de libéralisation des échanges de la CEDEAO</li>
+                <li class="icon-right-4">La Commission Nationale de Suivi des Accords de Partenariat economique (APE)</li>
+                <li class="icon-right-4">La Commission Nationale d'Agréments des Produits au Schéma de Libéralisation des Echanges de la CEDEAO</li>
+
+            </ul>
+            <br>
+        </div>
+
+        <div class="divider"></div>
+        <div class="divider"></div>
+        <div class="divider-1"></div>
+        <div class="divider"></div>
+        <div class="divider"></div>
+
+        <div class="section">
+            <div class="divider"></div>
+            <h1 class="title" id="directions">6. LES DIRECTIONS RATTACHEES AU CABINET</h1>
+            <div class="divider"></div>
+            <ul class="list">
+                <li class="icon-right-4">La Direction des Ressoures Humaines</li>
+                <li class="icon-right-4">La Direction des Affaires Administratives et Financières</li>
+                <li class="icon-right-4">La Direction des Affaires Juridiques et Institutionnelles</li>
+
+            </ul>
+            <br>
+        </div>
+
+
+        <div class="divider"></div>
+        <div class="divider"></div>
+        <div class="divider-1"></div>
+        <div class="divider"></div>
+        <div class="divider"></div>
+
+        <div class="section">
+            <div class="divider"></div>
+            <h1 class="title" id="structures">7. LES STRUCTURES SOUS TUTELLE</h1>
+            <div class="divider"></div>
+            <ul class="list">
+                <li class="icon-right-4">Bureau Ivoirien pour la Promotion de l'Intégration Africaine (B.I.P.I.A)</li>
+                <li class="icon-right-4">La Direction des Affaires Administratives et Financières</li>
+                <li class="icon-right-4">La Direction des Affaires Juridiques et Institutionnelles</li>
 
             </ul>
             <br>
@@ -132,27 +299,19 @@ require 'inc/header.php';
 
         <div class="section">
             <div class="divider"></div>
-            <h1 class="title">LES DIRECTIONS OPÉRATIONNELLES</h1>
+            <h1 class="title" id="organes">8. LES ORGANES SPECIALISES</h1>
             <div class="divider"></div>
+            <ul class="list">
+                <li class="icon-right-4">Le Bureau Nationale CEDEAO</li>
+                <li class="icon-right-4">Le comité Nationale de Suivi des Accords de Partenariat Economique (APE)</li>
+                <li class="icon-right-4">Le Comité d'Ecoute des Populations Ouest Africaines vivant en Côte d'Ivoire</li>
+                <li class="icon-right-4">Le Comité National d'Agrément des Produits au Schéma de Libéralisation des Echanges de la CEDEAO</li>
+                <li class="icon-right-4">Le Comité National de Pilotage du Mécanisme de Suivi de Libre Circulation des véhicules de transport des Personnes, des biens et du Bétail (CNLCPBB)</li>
 
-            <ul>
-                <span class="icon-angle-double-right">
-                    La Directions des Ressources Humaines (DRH)
-                </span> <br>
-                <span class="icon-angle-double-right">
-                    La Directions des Affaires Administratives et des Affaires Administratives (DAAF)
-                </span> <br>
             </ul>
-
-            <div>
-                <p class="infoss">
-                    Le ministère a sous sa tutelle un Etablissement Publique Nationale(EPN) à savoir le Bureau ivoirien pour la promotion de l'intégration Africaine(BIPIA).
-                </p>
-                <p class="infoss">
-                    Le ministère compte parailleurs deux grandes Directions générales. Ce sont la Direction Générale de l'Intégration Africaine(DGIA) et la Direction Générale des Ivoiriens de l'Extérieur(DGIE).
-                </p>
-            </div>
+            <br>
         </div>
+
 
         <div class="divider"></div>
         <div class="divider-1"></div>
