@@ -141,17 +141,14 @@ error_reporting(~E_NOTICE);
                   </li>
 
                   <!-- Direction Générale -->
-                  <li <?= ($page === 'integration' or $page === 'bipia' or $page === 'exterieur') ? $page : "" ?>>
+                  <li <?= ($page === 'integration' or $page === 'exterieur') ? $page : "" ?>>
                     <a href="#">Directions Générales</a>
                     <ul class="sub-menu">
                       <li>
-                        <a href="#">Direction Générale de l'Intégration Africaine (D.G.I.A)</a>
-                        <ul class="sub-menu">
-                          <li><a href="#">Bureau Ivoirien pour la Promotion de l'Intégration Africaine (B.I.P.I.A)</a></li>
-                        </ul>
+                        <a href="dgia">Direction Générale de l'Intégration Africaine (D.G.I.A)</a>
                       </li>
                       <li>
-                        <a href="http://diaspora.gouv.ci/">Direction Générale des Ivoiriens de l'Extérieur (D.G.I.E)</a>
+                        <a href="dgie">Direction Générale des Ivoiriens de l'Extérieur (D.G.I.E)</a>
                       </li>
                     </ul>
                   </li>
@@ -170,7 +167,7 @@ error_reporting(~E_NOTICE);
                         <a href="Projets-specifiques">Projets Spécifiques</a>
                       </li>
                       <li <?= ($page === 'projets') ? $class : "" ?>>
-                        <a href="#">M.A.E.P</a>
+                        <a href="#">A.E.P</a>
                       </li>
                     </ul>
                   </li>
@@ -191,7 +188,7 @@ error_reporting(~E_NOTICE);
                       <li <?= ($page === 'documentation') ? $class : "" ?>>
                         <a href="archives">Archives</a>
                       </li>
-                      <li <?= ($page === 'Statistiques') ? $class : "" ?>>
+                      <li <?= ($page === 'documentation') ? $class : "" ?>>
                         <a href="statistiques">Statistiques</a>
                       </li>
                     </ul>

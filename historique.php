@@ -30,7 +30,7 @@ require 'inc/header.php';
             <h1 style="color: black"><i>SOMMAIRE</i></h1>
             <br>
             <div style="margin-left: 50px">
-                <ol>
+                <ol style="font-size: 20px">
                     <a href="#historique">
                         <li>Historique
                         </li>
