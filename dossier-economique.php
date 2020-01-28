@@ -10,7 +10,7 @@ require 'inc/header.php';
         <h1 class="error text-center" style="font-size:30px">Informations</h1>
         <blockquote class="blockquote">
             <p style="color:black">
-                Pour la consultation de tous documents en relations avec
+                Pour la consultation de tous documents en relation avec
                 la Direction des Ressources humaines ou la Direction des Affaires Financières,
                 veuillez s'il vous plaît nous appeler au +225 00 00 00 00 ou nous écrire au mail
                 suivant <a href="mailto:" style="color:orange;">infos@integration.gouv.ci</a>.

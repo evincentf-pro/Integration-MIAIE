@@ -709,16 +709,16 @@ require 'inc/header.php';
 
             <div class="event-media">
               <div class="item-overlay">
-                <img src="images/blog/idm1.png" alt="Le magazine de la MIAIE" title="Le magazine de la MIAIE" />
+                <img src="docs/magazines/images/4.png" alt="Le magazine de la MIAIE" title="Le magazine de la MIAIE" />
               </div>
 
               <div class="event-content with-excerpt">
                 <h4 class="event-title">
-                  <a href="#">Le Magazine de la MAIE</a>
+                  <a href="docs/magazines/4.pdf">Le Magazine de la MAIE</a>
                 </h4>
 
                 <div class="event-text">
-                  <a href="#" class="down">Cliquez ici pour télécharger</a>
+                  <a href="docs/magazines/4.pdf" class="down">Cliquez ici pour télécharger</a>
                 </div>
               </div>
             </div>

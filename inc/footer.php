@@ -59,13 +59,13 @@
              <div class="menu-issues-container" style="font-style:italic">
                <ul id="menu-issues" class="menu">
                  <li>
-                   <a href="#">La Présidence</a>
+                   <a href="http://www.presidence.ci/">La Présidence</a>
                  </li>
                  <li>
-                   <a href="#">La Primature</a>
+                   <a href="http://www.gouv.ci/Main.php">La Primature</a>
                  </li>
                  <li>
-                   <a href="#">Le Gouvernement (CICG)</a>
+                   <a href="http://www.gouv.ci/Main.php">Le Gouvernement (CICG)</a>
                  </li>
                </ul>
              </div>
@@ -79,19 +79,19 @@
              <div class="menu-campaign-container">
                <ul id="menu-campaign" class="menu" style="font-style:italic">
                  <li>
-                   <a href="#">Assemblée Nationale</a>
+                   <a href="http://www.assnat.ci/">Assemblée Nationale</a>
                  </li>
                  <li>
-                   <a href="#">Conseil économique et social</a>
+                   <a href="http://ces.ci/">Conseil économique et social</a>
                  </li>
                  <li>
-                   <a href="#">Constitution 2016</a>
+                   <a href="https://www.centif.ci/images/lois/caf6428781fcfabd787165779f7f08a0.pdf">Constitution 2016</a>
                  </li>
                  <li>
-                   <a href="#">Inspection Général des Impôts</a>
+                   <a href="http://www.igf.finances.gouv.ci/">Inspection Général des Impôts</a>
                  </li>
                  <li>
-                   <a href="#">CEPICI</a>
+                   <a href="http://www.cepici.gouv.ci/">CEPICI</a>
                  </li>
                </ul>
              </div>
@@ -107,16 +107,16 @@
              <div class="menu-issues-container" style="font-style:italic">
                <ul id="menu-issues" class="menu">
                  <li>
-                   <a href="#">Identification de l'organisme</a>
+                   <a href="historique">Identification de l'organisme</a>
                  </li>
                  <li>
                    <a href="#">Prestations et services</a>
                  </li>
                  <li>
-                   <a href="#">Dépenses et finances publiques</a>
+                   <a href="dossier-economique">Dépenses et finances publiques</a>
                  </li>
                  <li>
-                   <a href="#">Documents de programmes publiques</a>
+                   <a href="dossier-economique">Documents de programmes publiques</a>
                  </li>
                  <li>
                    <a href="#">Documents d'orientation</a>
