@@ -1,8 +1,24 @@
 <?php
+//---------------- CONNECTION -----------------------------------------------------
+$host = "localhost";
+$db_name = "integration";
+$username = "root";
+$password = "root";
+$DB_con;
+
+
+$DB_con = null;
+try {
+    $DB_con = new PDO("mysql:host=localhost;dbname=integration", 'root', 'root');
+    $DB_con->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+} catch (PDOException $exception) {
+    echo "Connection error: " . $exception->getMessage();
+}
+
 class Database
 {
     private $host = "localhost";
-    private $db_name = "integration";
+    private $db_name = "miaie";
     private $username = "root";
     private $password = "root";
     public $conn;
@@ -21,3 +37,5 @@ class Database
         return $this->conn;
     }
 }
+
+//---------------- CONNECTION -----------------------------------------------------

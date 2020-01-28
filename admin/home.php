@@ -49,8 +49,8 @@ $userRow = $stmt->fetch(PDO::FETCH_ASSOC);
                         <h4 class="card-title text-center" style="color: orange"><b>A la Une</b></h4>
                         <img class="card-img-top justify-content-center" src="assets\img\home\slider.jpg" alt="Slider">
                         <div class="card-body justify-content-center text-center">
-                            <a href="Slider/InsertionArticle.php" class="btn btn-success">Ajouter</a>
-                            <a href="Slider/ListArticle.php" class="btn btn-success">Lister</a>
+                            <a href="slider/add.php" class="btn btn-success">Ajouter</a>
+                            <a href="slider/index.php" class="btn btn-success">Lister</a>
                         </div>
                     </div>
                 </div>
