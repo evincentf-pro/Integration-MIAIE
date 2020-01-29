@@ -1,6 +1,5 @@
-	
 Archives(4) => archives
-    o id
-    o titre
-    o lien
-    o img
+o id
+o titre
+o lien
+o img

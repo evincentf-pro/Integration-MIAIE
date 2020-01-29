@@ -1,4 +1,5 @@
-Projets regionaux (3) => prjregionaux
+Projets regionaux (4) => prjregionaux
 o id
+o titre
 o img
 o corps

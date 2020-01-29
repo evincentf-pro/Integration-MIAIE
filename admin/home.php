@@ -34,10 +34,12 @@ $userRow = $stmt->fetch(PDO::FETCH_ASSOC);
             <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbar2SupportedContent" aria-controls="navbar2SupportedContent" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span> </button>
             <div class="collapse navbar-collapse text-center justify-content-end" id="navbar2SupportedContent">
                 <ul class="navbar-nav">
-                    <li class="nav-item"> Bonjour <?php print($userRow['user_name']); ?> </li>
+                    <!-- <li class="nav-item"> Bonjour <?php print($userRow['user_name']); ?> </li> -->
                 </ul>
+                <a href="../" class="btn navbar-btn ml-2 text-white btn-warning" title="Se rendre sur le site"><i class="fa d-inline fa-lg fa-home"></i> </a>
                 <ul class="nav navbar-nav navbar-right"> </ul>
                 <a href="config/logout.php?logout=true" class="btn navbar-btn ml-2 text-white btn-warning"><i class="fa d-inline fa-lg fa-user-circle-o"></i> Déconnexion</a>
+
             </div>
         </div>
     </nav>
@@ -201,6 +203,19 @@ $userRow = $stmt->fetch(PDO::FETCH_ASSOC);
                         <div class="card-body text-center">
                             <a href="p-transfontaliers\add.php" class="btn btn-success">Ajouter</a>
                             <a href="p-transfontaliers\index.php" class="btn btn-success">Lister</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card">
+                        <h4 class="card-title text-center" style="color: orange"><b> Flash Infos</b></h4>
+                        <img src="assets\img\home\flashinfos.jpg" class="card-img-top" alt="Flash Infos">
+                        <div class="card-body text-center">
+                            <a href="flashs\add.php" class="btn btn-success">Ajouter</a>
+                            <a href="flashs\index.php" class="btn btn-success">Lister</a>
                         </div>
                     </div>
                 </div>

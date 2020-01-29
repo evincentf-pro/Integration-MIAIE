@@ -15,7 +15,7 @@ if (isset($_POST['btnsave'])) {
     if (empty($titre)) {
         $errMSG = "titre manquant";
     } else if (empty($lien)) {
-        $errMSG = "lien manquante";
+        $errMSG = "lien manquant";
     } else if (empty($imgFile)) {
         $errMSG = "Oups vous avez oublié la photo";
     } else {

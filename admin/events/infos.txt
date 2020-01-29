@@ -1,10 +1,6 @@
-Plus d’infos (9) => plusinfos
+Events (9) => events
 o id
 o Img
 o appeltitre
-o titre
-o legende
-o chapeau
 o corps
-o auteur
-o datepubli
+o dateevent

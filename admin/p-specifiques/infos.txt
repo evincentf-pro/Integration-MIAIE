@@ -1,4 +1,5 @@
-Projets specifiques (3) => prjspecifiques
+Projets specifiques (4) => prjspecifiques
 o id
+o title
 o img
 o corps

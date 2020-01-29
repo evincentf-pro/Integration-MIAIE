@@ -137,37 +137,37 @@ if (isset($_POST['btnsave'])) {
 
                                         <div class="form-group">
                                             <label for="AppelDeTitre"><b>Appel de titre</b></label>
-                                            <input type="text" name="appeltitre" class="form-control" id="exampleInputEmail1" placeholder="Entrez l'appel de titre" value="<?= $appeltitre ?>">
+                                            <input type="text" name="appeltitre" class="form-control" id="Appeldetitre" placeholder="Entrez l'appel de titre" value="<?= $appeltitre ?>">
                                         </div>
 
                                         <div class="form-group">
                                             <label for="titre"><b>Titre</b></label>
-                                            <input type="text" name="titre" class="form-control" id="exampleInputEmail1" placeholder="Entrez le titre">
+                                            <input type="text" name="titre" class="form-control" id="titre" placeholder="Entrez le titre">
                                         </div>
 
                                         <div class="form-group"> <label for="Legende">
                                                 <b>Legende</b></label>
-                                            <input type="text" name="legende" class="form-control" id="exampleInputEmail1" placeholder="Entrez la légende">
+                                            <input type="text" name="legende" class="form-control" id="legende" placeholder="Entrez la légende">
                                         </div>
 
                                         <div class="form-group">
                                             <label for="chapeau"><b>Chapeau</b></label>
-                                            <input type="text" name="chapeau" class="form-control" id="exampleInputEmail1" placeholder="Entrez le chapeau">
+                                            <input type="text" name="chapeau" class="form-control" id="chapeau" placeholder="Entrez le chapeau">
                                         </div>
 
                                         <div class="form-group">
-                                            <label for="chapeau"><b>Corps du Texte</b></label>
+                                            <label for="corps"><b>Corps du Texte</b></label>
                                             <textarea class="ckeditor" id="editeur" name="corps"></textarea>
                                         </div>
 
                                         <div class="form-group">
-                                            <label for="Legende"><b>Auteur</b></label>
-                                            <input type="text" name="auteur" class="form-control" id="exampleInputEmail1" placeholder="Auteur">
+                                            <label for="auteur"><b>Auteur</b></label>
+                                            <input type="text" name="auteur" class="form-control" id="auteur" placeholder="Auteur">
                                         </div>
 
                                         <div class="form-group">
-                                            <label for="Legende"><b>Date d'ajout</b></label>
-                                            <input type="date" name="datepubli" id="date_begin" class="form-control" />
+                                            <label for="date"><b>Date d'ajout</b></label>
+                                            <input type="date" name="datepubli" id="date" class="form-control" />
                                         </div>
 
                                         <a href="../home.php" class="btn btn-outline-warning">Retour</a>

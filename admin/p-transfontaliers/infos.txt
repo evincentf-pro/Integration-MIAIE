@@ -1,4 +1,5 @@
-Projets transfontaliers (3) => prjtransfontaliers
+Projets transfontaliers (4) => prjtransfontaliers
 o id
+o title
 o img
 o corps

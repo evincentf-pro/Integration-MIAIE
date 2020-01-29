@@ -146,40 +146,40 @@ if (isset($_POST['btn_save_updates'])) {
                                         </div>
 
                                         <div class="form-group">
-                                            <label for="AppelDeTitre"><b>Appel de titre</b></label>
-                                            <input type="text" name="appeltitre" class="form-control" id="exampleInputEmail1" placeholder="Entrez l'appel de titre" value="<?= $appeltitre ?>">
+                                            <label for="appeltitre"><b>Appel de titre</b></label>
+                                            <input type="text" name="appeltitre" class="form-control" id="appeltitre" placeholder="Entrez l'appel de titre" value="<?= $appeltitre ?>">
                                         </div>
 
                                         <div class="form-group">
                                             <label for="titre"><b>Titre</b></label>
-                                            <input type="text" name="titre" class="form-control" id="exampleInputEmail1" placeholder="Entrez le titre" value="<?= $titre ?>">
+                                            <input type="text" name="titre" class="form-control" id="titre" placeholder="Entrez le titre" value="<?= $titre ?>">
                                         </div>
 
                                         <div class="form-group"> <label for="Legende">
                                                 <b>Legende</b></label>
-                                            <input type="text" name="legende" class="form-control" id="exampleInputEmail1" placeholder="Entrez la légende" value="<?= $legende ?>">
+                                            <input type="text" name="legende" class="form-control" id="legende" placeholder="Entrez la légende" value="<?= $legende ?>">
                                         </div>
 
                                         <div class="form-group">
                                             <label for="chapeau"><b>Chapeau</b></label>
-                                            <input type="text" name="chapeau" class="form-control" id="exampleInputEmail1" placeholder="Entrez le chapeau" value="<?= $chapeau ?>">
+                                            <input type="text" name="chapeau" class="form-control" id="chapeau" placeholder="Entrez le chapeau" value="<?= $chapeau ?>">
                                         </div>
 
                                         <div class="form-group">
                                             <label for="chapeau"><b>Corps du Texte</b></label>
                                             <textarea class="ckeditor" id="editeur" name="corps">
-                                                <?= $appeltitre ?>
+                                                <?= $corps ?>
                                             </textarea>
                                         </div>
 
                                         <div class="form-group">
-                                            <label for="Legende"><b>Auteur</b></label>
-                                            <input type="text" name="auteur" class="form-control" id="exampleInputEmail1" placeholder="Auteur" value="<?= $auteur ?>">
+                                            <label for="auteur"><b>Auteur</b></label>
+                                            <input type="text" name="auteur" class="form-control" id="auteur" placeholder="Auteur" value="<?= $auteur ?>">
                                         </div>
 
                                         <div class="form-group">
-                                            <label for="Legende"><b>Date d'ajout</b>(<?= $datepubli ?>) </label>
-                                            <input type="date" name="datepubli" id="date_begin" class="form-control" value="<?= $datepubli ?>" />
+                                            <label for="date"><b>Date d'ajout</b>(<?= $datepubli ?>) </label>
+                                            <input type="date" name="datepubli" id="date" class="form-control" value="<?= $datepubli ?>" />
                                         </div>
 
                                         <a href="../home.php" class="btn btn-outline-warning">Retour</a>

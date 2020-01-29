@@ -183,7 +183,7 @@ error_reporting(~E_NOTICE);
                         <a href="text-communautaires">Textes Communautaires</a>
                       </li <?= ($page === 'documentation') ? $class : "" ?>>
                       <li <?= ($page === 'documentation') ? $class : "" ?>>
-                        <a href="dossier-economique">Données Economiques du MIAIE</a>
+                        <a href="dossier-economique">Données Economiques</a>
                       </li>
                       <li <?= ($page === 'documentation') ? $class : "" ?>>
                         <a href="archives">Archives</a>
@@ -196,7 +196,7 @@ error_reporting(~E_NOTICE);
 
                   <!-- Contacts -->
                   <li <?= ($page === 'contact') ? $class : "" ?>>
-                    <a href="contact">Contact</a>
+                    <a href="contact">Contacts</a>
                   </li>
                 </ul>
               </div>
