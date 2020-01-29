@@ -1,30 +1,16 @@
 <?php
 
-require_once("../config/session.php");
-
-require_once("../config/class.user.php");
-$auth_user = new USER();
-
-
-$user_id = $_SESSION['user_session'];
-
-$stmt = $auth_user->runQuery("SELECT * FROM users WHERE user_id=:user_id");
-$stmt->execute(array(":user_id" => $user_id));
-
-$userRow = $stmt->fetch(PDO::FETCH_ASSOC);
-
-
 require_once '../config/dbconfig.php';
 
 if (isset($_GET['delete_id'])) {
     // select image from db to delete
-    $stmt_select = $DB_con->prepare('SELECT img FROM alaune WHERE id =:uid');
+    $stmt_select = $DB_con->prepare('SELECT img FROM articles WHERE id =:uid');
     $stmt_select->execute(array(':uid' => $_GET['delete_id']));
     $imgRow = $stmt_select->fetch(PDO::FETCH_ASSOC);
     unlink("images/" . $imgRow['image']);
 
     // it will delete an actual record from db
-    $stmt_delete = $DB_con->prepare('DELETE FROM alaune WHERE id =:uid');
+    $stmt_delete = $DB_con->prepare('DELETE FROM articles WHERE id =:uid');
     $stmt_delete->bindParam(':uid', $_GET['delete_id']);
     $stmt_delete->execute();
 
@@ -85,7 +71,7 @@ if (isset($_GET['delete_id'])) {
                                 <tbody style="text-align:center">
                                     <?php
 
-                                    $stmt = $DB_con->prepare('SELECT id, appeltitre, titre, legende, chapeau, corps, auteur, datepubli, img FROM alaune ORDER BY id DESC');
+                                    $stmt = $DB_con->prepare('SELECT id, appeltitre, titre, legende, chapeau, corps, auteur, datepubli, img FROM articles ORDER BY id DESC');
                                     $stmt->execute();
 
                                     if ($stmt->rowCount() > 0) {

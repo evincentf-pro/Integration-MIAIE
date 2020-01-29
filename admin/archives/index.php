@@ -1,30 +1,16 @@
 <?php
 
-require_once("../config/session.php");
-
-require_once("../config/class.user.php");
-$auth_user = new USER();
-
-
-$user_id = $_SESSION['user_session'];
-
-$stmt = $auth_user->runQuery("SELECT * FROM users WHERE user_id=:user_id");
-$stmt->execute(array(":user_id" => $user_id));
-
-$userRow = $stmt->fetch(PDO::FETCH_ASSOC);
-
-
 require_once '../config/dbconfig.php';
 
 if (isset($_GET['delete_id'])) {
     // select image from db to delete
-    $stmt_select = $DB_con->prepare('SELECT img FROM alaune WHERE id =:uid');
+    $stmt_select = $DB_con->prepare('SELECT img FROM archives WHERE id =:uid');
     $stmt_select->execute(array(':uid' => $_GET['delete_id']));
     $imgRow = $stmt_select->fetch(PDO::FETCH_ASSOC);
     unlink("images/" . $imgRow['image']);
 
     // it will delete an actual record from db
-    $stmt_delete = $DB_con->prepare('DELETE FROM alaune WHERE id =:uid');
+    $stmt_delete = $DB_con->prepare('DELETE FROM archives WHERE id =:uid');
     $stmt_delete->bindParam(':uid', $_GET['delete_id']);
     $stmt_delete->execute();
 
@@ -59,7 +45,7 @@ if (isset($_GET['delete_id'])) {
                 <div class="col-md-12">
                     <div class="card">
                         <div class="card-header">
-                            <h1> <b> <i>Liste des articles à la Une</i></b></h1>
+                            <h1> <b> <i>Liste des archives à la Une</i></b></h1>
                             <div style="text-align:right">
                                 <input type="text" name="">
                                 <button type="button" data-dismiss="modal">Recherche</button>
@@ -70,13 +56,8 @@ if (isset($_GET['delete_id'])) {
                                 <thead style="text-align:center">
                                     <tr>
                                         <th>N°</th>
-                                        <th>A.Titre</th>
                                         <th>Titre</th>
-                                        <th>Legende</th>
-                                        <th>Chapeau</th>
-                                        <th>C.Texte</th>
-                                        <th>Auteur</th>
-                                        <th>Pub.Dat</th>
+                                        <th>Lien</th>
                                         <th>image</th>
                                         <th>Modification</th>
                                         <th>Suppression</th>
@@ -85,7 +66,7 @@ if (isset($_GET['delete_id'])) {
                                 <tbody style="text-align:center">
                                     <?php
 
-                                    $stmt = $DB_con->prepare('SELECT id, appeltitre, titre, legende, chapeau, corps, auteur, datepubli, img FROM alaune ORDER BY id DESC');
+                                    $stmt = $DB_con->prepare('SELECT id, titre, lien, img FROM archives ORDER BY id DESC');
                                     $stmt->execute();
 
                                     if ($stmt->rowCount() > 0) {
@@ -95,34 +76,14 @@ if (isset($_GET['delete_id'])) {
                                             <tr>
                                                 <td><?= $id; ?></td>
                                                 <td>
-                                                    <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#<?= $appeltitre; ?>" title="cliquez ici pour afficher l'appel de titre">Afficher</button>
-                                                    <div id="<?= $appeltitre; ?>" class="modal fade" role="dialog">
-                                                        <div class="modal-dialog">
-                                                            <div class="modal-content">
-                                                                <div class="modal-header">
-                                                                    <h4 class="modal-title">Appel de titre de l'id <?= $id; ?></h4>
-                                                                </div>
-                                                                <div class="modal-body" name="apeltitre">
-                                                                    <b>
-                                                                        <p><?= $appeltitre; ?></p>
-                                                                    </b>
-                                                                </div>
-                                                                <div class="modal-footer">
-                                                                    <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </td>
-                                                <td>
-                                                    <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#<?= $titre; ?>" title="cliquez ici pour afficher le titre">Afficher</button>
+                                                    <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#<?= $titre; ?>" title="cliquez ici pour afficher l'appel de titre">Afficher</button>
                                                     <div id="<?= $titre; ?>" class="modal fade" role="dialog">
                                                         <div class="modal-dialog">
                                                             <div class="modal-content">
                                                                 <div class="modal-header">
                                                                     <h4 class="modal-title">Titre de l'id <?= $id; ?></h4>
                                                                 </div>
-                                                                <div class="modal-body" name="titre">
+                                                                <div class="modal-body" name="apeltitre">
                                                                     <b>
                                                                         <p><?= $titre; ?></p>
                                                                     </b>
@@ -135,16 +96,16 @@ if (isset($_GET['delete_id'])) {
                                                     </div>
                                                 </td>
                                                 <td>
-                                                    <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#<?= $legende; ?>" title="cliquez ici pour afficher la légende">Afficher</button>
-                                                    <div id="<?= $legende; ?>" class="modal fade" role="dialog">
+                                                    <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#<?= $lien; ?>" title="cliquez ici pour afficher la légende">Afficher</button>
+                                                    <div id="<?= $lien; ?>" class="modal fade" role="dialog">
                                                         <div class="modal-dialog">
                                                             <div class="modal-content">
                                                                 <div class="modal-header">
-                                                                    <h4 class="modal-title">Légende de l'id N° <?= $id; ?></h4>
+                                                                    <h4 class="modal-title">Lien de l'id N° <?= $id; ?></h4>
                                                                 </div>
                                                                 <div class="modal-body" name="legende">
                                                                     <b>
-                                                                        <p><?= $legende; ?></p>
+                                                                        <p><?= $lien; ?></p>
                                                                     </b>
                                                                 </div>
                                                                 <div class="modal-footer">
@@ -153,53 +114,6 @@ if (isset($_GET['delete_id'])) {
                                                             </div>
                                                         </div>
                                                     </div>
-                                                </td>
-                                                <td>
-                                                    <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#<?= $chapeau; ?>" title="cliquez ici pour afficher le chapeau">Afficher</button>
-                                                    <div id="<?= $chapeau; ?>" class="modal fade" role="dialog">
-                                                        <div class="modal-dialog">
-                                                            <div class="modal-content">
-                                                                <div class="modal-header">
-                                                                    <h4 class="modal-title">Chapeau de l'id N° <?= $id; ?></h4>
-                                                                </div>
-                                                                <div class="modal-body" name="chapeau">
-                                                                    <b>
-                                                                        <p><?= $corps; ?></p>
-                                                                    </b>
-                                                                </div>
-                                                                <div class="modal-footer">
-                                                                    <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </td>
-                                                <td>
-                                                    <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#<?= $corps; ?>" title="cliquez ici pour afficher le texte">Afficher</button>
-                                                    <div id="<?= $corps; ?>" class="modal fade" role="dialog">
-                                                        <div class="modal-dialog">
-                                                            <div class="modal-content">
-                                                                <div class="modal-header">
-                                                                    <h4 class="modal-title">Texte de l'id N° <?= $id; ?></h4>
-                                                                </div>
-                                                                <div class="modal-body" name="corps">
-                                                                    <b>
-                                                                        <p><?= $corps; ?></p>
-                                                                    </b>
-                                                                </div>
-                                                                <div class="modal-footer">
-                                                                    <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
-                                                                </div>
-                                                            </div>
-
-                                                        </div>
-                                                    </div>
-                                                </td>
-                                                <td>
-                                                    <?= $auteur; ?>
-                                                </td>
-                                                <td>
-                                                    <?= $datepubli; ?>
                                                 </td>
                                                 <td>
                                                     <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#images/<?= $row['img']; ?>" title="cliquez ici pour afficher l'image">Afficher</button>

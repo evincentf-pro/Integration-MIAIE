@@ -18,10 +18,8 @@ require_once '../config/dbconfig.php';
 
 if (isset($_GET['delete_id'])) {
     // select image from db to delete
-    $stmt_select = $DB_con->prepare('SELECT img FROM alaune WHERE id =:uid');
+    $stmt_select = $DB_con->prepare('SELECT id FROM contacts WHERE id =:uid');
     $stmt_select->execute(array(':uid' => $_GET['delete_id']));
-    $imgRow = $stmt_select->fetch(PDO::FETCH_ASSOC);
-    unlink("images/" . $imgRow['image']);
 
     // it will delete an actual record from db
     $stmt_delete = $DB_con->prepare('DELETE FROM alaune WHERE id =:uid');
@@ -70,22 +68,17 @@ if (isset($_GET['delete_id'])) {
                                 <thead style="text-align:center">
                                     <tr>
                                         <th>N°</th>
-                                        <th>A.Titre</th>
-                                        <th>Titre</th>
-                                        <th>Legende</th>
-                                        <th>Chapeau</th>
-                                        <th>C.Texte</th>
-                                        <th>Auteur</th>
-                                        <th>Pub.Dat</th>
-                                        <th>image</th>
-                                        <th>Modification</th>
+                                        <th>Nom</th>
+                                        <th>Mail</th>
+                                        <th>Sujet</th>
+                                        <th>Message</th>
                                         <th>Suppression</th>
                                     </tr>
                                 </thead>
                                 <tbody style="text-align:center">
                                     <?php
 
-                                    $stmt = $DB_con->prepare('SELECT id, appeltitre, titre, legende, chapeau, corps, auteur, datepubli, img FROM alaune ORDER BY id DESC');
+                                    $stmt = $DB_con->prepare('SELECT id, nom, mail, sujet, message FROM contacts ORDER BY id DESC');
                                     $stmt->execute();
 
                                     if ($stmt->rowCount() > 0) {
@@ -95,16 +88,16 @@ if (isset($_GET['delete_id'])) {
                                             <tr>
                                                 <td><?= $id; ?></td>
                                                 <td>
-                                                    <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#<?= $appeltitre; ?>" title="cliquez ici pour afficher l'appel de titre">Afficher</button>
-                                                    <div id="<?= $appeltitre; ?>" class="modal fade" role="dialog">
+                                                    <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#<?= $nom; ?>" title="cliquez ici pour afficher le nom">Afficher</button>
+                                                    <div id="<?= $nom; ?>" class="modal fade" role="dialog">
                                                         <div class="modal-dialog">
                                                             <div class="modal-content">
                                                                 <div class="modal-header">
-                                                                    <h4 class="modal-title">Appel de titre de l'id <?= $id; ?></h4>
+                                                                    <h4 class="modal-title">le nom de l'id <?= $id; ?></h4>
                                                                 </div>
                                                                 <div class="modal-body" name="apeltitre">
                                                                     <b>
-                                                                        <p><?= $appeltitre; ?></p>
+                                                                        <p><?= $nom; ?></p>
                                                                     </b>
                                                                 </div>
                                                                 <div class="modal-footer">
@@ -115,16 +108,16 @@ if (isset($_GET['delete_id'])) {
                                                     </div>
                                                 </td>
                                                 <td>
-                                                    <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#<?= $titre; ?>" title="cliquez ici pour afficher le titre">Afficher</button>
-                                                    <div id="<?= $titre; ?>" class="modal fade" role="dialog">
+                                                    <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#<?= $mail; ?>" title="cliquez ici pour afficher le mail">Afficher</button>
+                                                    <div id="<?= $mail; ?>" class="modal fade" role="dialog">
                                                         <div class="modal-dialog">
                                                             <div class="modal-content">
                                                                 <div class="modal-header">
-                                                                    <h4 class="modal-title">Titre de l'id <?= $id; ?></h4>
+                                                                    <h4 class="modal-title">le mail de l'id <?= $id; ?></h4>
                                                                 </div>
                                                                 <div class="modal-body" name="titre">
                                                                     <b>
-                                                                        <p><?= $titre; ?></p>
+                                                                        <p> <a href="mailto:<?= $mail; ?>"><?= $mail; ?></a></p>
                                                                     </b>
                                                                 </div>
                                                                 <div class="modal-footer">
@@ -135,16 +128,16 @@ if (isset($_GET['delete_id'])) {
                                                     </div>
                                                 </td>
                                                 <td>
-                                                    <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#<?= $legende; ?>" title="cliquez ici pour afficher la légende">Afficher</button>
-                                                    <div id="<?= $legende; ?>" class="modal fade" role="dialog">
+                                                    <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#<?= $sujet; ?>" title="cliquez ici pour afficher le sujet">Afficher</button>
+                                                    <div id="<?= $sujet; ?>" class="modal fade" role="dialog">
                                                         <div class="modal-dialog">
                                                             <div class="modal-content">
                                                                 <div class="modal-header">
-                                                                    <h4 class="modal-title">Légende de l'id N° <?= $id; ?></h4>
+                                                                    <h4 class="modal-title">le sujet de l'id N° <?= $id; ?></h4>
                                                                 </div>
-                                                                <div class="modal-body" name="legende">
+                                                                <div class="modal-body" name="sujet">
                                                                     <b>
-                                                                        <p><?= $legende; ?></p>
+                                                                        <p><?= $sujet; ?></p>
                                                                     </b>
                                                                 </div>
                                                                 <div class="modal-footer">
@@ -155,16 +148,16 @@ if (isset($_GET['delete_id'])) {
                                                     </div>
                                                 </td>
                                                 <td>
-                                                    <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#<?= $chapeau; ?>" title="cliquez ici pour afficher le chapeau">Afficher</button>
-                                                    <div id="<?= $chapeau; ?>" class="modal fade" role="dialog">
+                                                    <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#<?= $message; ?>" title="cliquez ici pour afficher le sujet">Afficher</button>
+                                                    <div id="<?= $message; ?>" class="modal fade" role="dialog">
                                                         <div class="modal-dialog">
                                                             <div class="modal-content">
                                                                 <div class="modal-header">
-                                                                    <h4 class="modal-title">Chapeau de l'id N° <?= $id; ?></h4>
+                                                                    <h4 class="modal-title">le message de l'id N° <?= $id; ?></h4>
                                                                 </div>
-                                                                <div class="modal-body" name="chapeau">
+                                                                <div class="modal-body" name="sujet">
                                                                     <b>
-                                                                        <p><?= $corps; ?></p>
+                                                                        <p><?= $message; ?></p>
                                                                     </b>
                                                                 </div>
                                                                 <div class="modal-footer">
@@ -173,59 +166,6 @@ if (isset($_GET['delete_id'])) {
                                                             </div>
                                                         </div>
                                                     </div>
-                                                </td>
-                                                <td>
-                                                    <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#<?= $corps; ?>" title="cliquez ici pour afficher le texte">Afficher</button>
-                                                    <div id="<?= $corps; ?>" class="modal fade" role="dialog">
-                                                        <div class="modal-dialog">
-                                                            <div class="modal-content">
-                                                                <div class="modal-header">
-                                                                    <h4 class="modal-title">Texte de l'id N° <?= $id; ?></h4>
-                                                                </div>
-                                                                <div class="modal-body" name="corps">
-                                                                    <b>
-                                                                        <p><?= $corps; ?></p>
-                                                                    </b>
-                                                                </div>
-                                                                <div class="modal-footer">
-                                                                    <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
-                                                                </div>
-                                                            </div>
-
-                                                        </div>
-                                                    </div>
-                                                </td>
-                                                <td>
-                                                    <?= $auteur; ?>
-                                                </td>
-                                                <td>
-                                                    <?= $datepubli; ?>
-                                                </td>
-                                                <td>
-                                                    <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#images/<?= $row['img']; ?>" title="cliquez ici pour afficher l'image">Afficher</button>
-                                                    <div id="images/<?= $row['img']; ?>" class="modal fade" role="dialog">
-                                                        <div class="modal-dialog">
-                                                            <div class="modal-content">
-                                                                <div class="modal-header">
-                                                                    <h4 class="modal-title">Image de l'id N° <?= $id; ?></h4>
-                                                                </div>
-                                                                <div class="modal-body">
-                                                                    <img src="images/<?= $row['img']; ?>" width="400">
-                                                                </div>
-                                                                <div class="modal-footer">
-                                                                    <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
-                                                                </div>
-                                                            </div>
-
-                                                        </div>
-                                                    </div>
-                                                </td>
-                                                <td>
-                                                    <p>
-                                                        <a href="edit.php?edit_id=<?php echo $row['id']; ?>" title="cliquez pour modifier" onclick="return confirm('Voulez vous vraiment modifiez cette donnée?')">
-                                                            <img src="../assets/img/icons/pencil (1).png" width="20">
-                                                        </a>
-                                                    </p>
                                                 </td>
                                                 <td>
                                                     <p>

@@ -59,8 +59,8 @@ $userRow = $stmt->fetch(PDO::FETCH_ASSOC);
                         <h4 class="card-title text-center" style="color: orange"><b>Articles</b></h4>
                         <img class="card-img-top" src="assets\img\home\articles.jpg" alt="Articles">
                         <div class="card-body text-center">
-                            <a href="Plus_Infos/InsertionArticle.php" class="btn btn-success">Ajouter</a>
-                            <a href="Plus_Infos/ListArticle.php" class="btn btn-success">Lister</a>
+                            <a href="articles/add.php" class="btn btn-success">Ajouter</a>
+                            <a href="articles/index.php" class="btn btn-success">Lister</a>
                         </div>
                     </div>
                 </div>
@@ -69,8 +69,8 @@ $userRow = $stmt->fetch(PDO::FETCH_ASSOC);
                         <h4 class="card-title text-center" style="color: orange"><b>Archives</b></h4>
                         <img class="card-img-top" src="assets\img\home\archives.jpg" alt="Archives">
                         <div class="card-body text-center">
-                            <a href="Flash_Infos/InsertionArticle.php" class="btn btn-success">Ajouter</a>
-                            <a href="Flash_Infos/ListArticle.php" class="btn btn-success">Lister</a>
+                            <a href="archives/add.php" class="btn btn-success">Ajouter</a>
+                            <a href="archives/index.php" class="btn btn-success">Lister</a>
                         </div>
                     </div>
                 </div>
@@ -82,8 +82,8 @@ $userRow = $stmt->fetch(PDO::FETCH_ASSOC);
                         <h4 class="card-title text-center" style="color: orange"><b>Textes Communautaires</b></h4>
                         <img class="card-img-top justify-content-center" src="assets\img\home\texte.jpg" alt="Textes Communautaires">
                         <div class="card-body justify-content-center text-center">
-                            <a href="Slider/InsertionArticle.php" class="btn btn-success">Ajouter</a>
-                            <a href="Slider/ListArticle.php" class="btn btn-success">Lister</a>
+                            <a href="text-communautaire/add.php" class="btn btn-success">Ajouter</a>
+                            <a href="text-communautaire/index.php" class="btn btn-success">Lister</a>
                         </div>
                     </div>
                 </div>
@@ -92,8 +92,8 @@ $userRow = $stmt->fetch(PDO::FETCH_ASSOC);
                         <h4 class="card-title text-center" style="color: orange"><b>Events</b></h4>
                         <img class="card-img-top" src="assets\img\home\events.jpg" alt="Events">
                         <div class="card-body text-center">
-                            <a href="Plus_Infos/InsertionArticle.php" class="btn btn-success">Ajouter</a>
-                            <a href="Plus_Infos/ListArticle.php" class="btn btn-success">Lister</a>
+                            <a href="events/add.php" class="btn btn-success">Ajouter</a>
+                            <a href="events/index.php" class="btn btn-success">Lister</a>
                         </div>
                     </div>
                 </div>
@@ -102,8 +102,8 @@ $userRow = $stmt->fetch(PDO::FETCH_ASSOC);
                         <h4 class="card-title text-center" style="color: orange"><b>Bourses d'Etudes</b></h4>
                         <img class="card-img-top" src="assets\img\home\bourses.jpg" alt="Bourses d'Etudes">
                         <div class="card-body text-center">
-                            <a href="Flash_Infos/InsertionArticle.php" class="btn btn-success">Ajouter</a>
-                            <a href="Flash_Infos/ListArticle.php" class="btn btn-success">Lister</a>
+                            <a href="bourses/add.php" class="btn btn-success">Ajouter</a>
+                            <a href="bourses/index.php" class="btn btn-success">Lister</a>
                         </div>
                     </div>
                 </div>
@@ -115,8 +115,8 @@ $userRow = $stmt->fetch(PDO::FETCH_ASSOC);
                         <h4 class="card-title text-center" style="color: orange"><b>Brèves</b></h4>
                         <img class="card-img-top" src="assets\img\home\breves.jpg" alt="brèves">
                         <div class="card-body justify-content-center text-center">
-                            <a href="Infos_Urgent/InsertionArticle.php" class="btn btn-success">Ajouter</a>
-                            <a href="Infos_Urgent/ListArticle.php" class="btn btn-success">Lister</a>
+                            <a href="breves/add.php" class="btn btn-success">Ajouter</a>
+                            <a href="breves/index.php" class="btn btn-success">Lister</a>
                         </div>
                     </div>
                 </div>
@@ -125,8 +125,8 @@ $userRow = $stmt->fetch(PDO::FETCH_ASSOC);
                         <h4 class="card-title text-center" style="color: orange"><b>Magazines</b></h4>
                         <img class="card-img-top" src="assets\img\home\magazines.jpg" alt="Magazines">
                         <div class="card-body text-center">
-                            <a href="Offre_Emplois/InsertionArticle.php" class="btn btn-success">Ajouter</a>
-                            <a href="Offre_Emplois/ListArticle.php" class="btn btn-success">Lister</a>
+                            <a href="magazine/add.php" class="btn btn-success">Ajouter</a>
+                            <a href="magazine/index.php" class="btn btn-success">Lister</a>
                         </div>
                     </div>
                 </div>
@@ -135,8 +135,8 @@ $userRow = $stmt->fetch(PDO::FETCH_ASSOC);
                         <h4 class="card-title text-center" style="color: orange"><b>Insertion d'images</b></h4>
                         <img class="card-img-top" src="assets\img\home\portfolio.jpg" alt="Portflolio">
                         <div class="card-body text-center">
-                            <a href="Images\img_1.php" class="btn btn-success">Even.1</a>
-                            <a href="Images\img_2.php" class="btn btn-success">Even.2</a>
+                            <a href="galerie/add.php" class="btn btn-success">Ajouter</a>
+                            <a href="galerie/index.php" class="btn btn-success">Lister</a>
                         </div>
                     </div>
                 </div>
@@ -148,7 +148,7 @@ $userRow = $stmt->fetch(PDO::FETCH_ASSOC);
                         <h4 class="card-title text-center" style="color: orange"><b>Vidéos</b></h4>
                         <img class="card-img-top" src="assets\img\home\videos.jpg" alt="Vidéos">
                         <div class="card-body text-center">
-                            <a href="Videos/InsertionVideo.php" class="btn btn-success">Ajouter</a>
+                            <a href="youtube/add.php" class="btn btn-success">Ajouter</a>
                         </div>
                     </div>
                 </div>
@@ -157,7 +157,7 @@ $userRow = $stmt->fetch(PDO::FETCH_ASSOC);
                         <h4 class="card-title text-center" style="color: orange"><b>Message Privé</b></h4>
                         <img class="card-img-top" src="assets\img\home\messages.jpg" alt="Message">
                         <div class="card-body text-center">
-                            <a href="Message_Prive/ListMessage.php" class="btn btn-success">Lire</a>
+                            <a href="contact/index.php" class="btn btn-success">Lire</a>
                         </div>
                     </div>
                 </div>
@@ -166,8 +166,8 @@ $userRow = $stmt->fetch(PDO::FETCH_ASSOC);
                         <h4 class="card-title text-center" style="color: orange"><b>Emplois</b></h4>
                         <img class="card-img-top" src="assets\img\home\emplois.jpg" alt="Emplois">
                         <div class="card-body text-center">
-                            <a href="Liste_Diaspo/InsertionArticle.php" class="btn btn-success">Ajouter</a>
-                            <a href="Liste_Diaspo/ListArticle.php" class="btn btn-success">Lister</a>
+                            <a href="emplois/add.php" class="btn btn-success">Ajouter</a>
+                            <a href="emplois/index.php" class="btn btn-success">Lister</a>
                         </div>
                     </div>
                 </div>

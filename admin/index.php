@@ -479,9 +479,7 @@ if (isset($_POST['btn-login'])) {
 
 
                 <div class="submit-container clearfix" style="margin-top: 2rem;">
-
                     <input type="submit" value="Connexion" class="btn btn-irenic float-right" name="btn-login">
-
                 </div>
         </div>
         </form>

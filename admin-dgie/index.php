@@ -1,3 +1,25 @@
+<?php
+session_start();
+require_once("config/class.user.php");
+$login = new USER();
+
+if ($login->is_loggedin() != "") {
+    $login->redirect('home.php');
+}
+
+if (isset($_POST['btn-login'])) {
+    $uname = strip_tags($_POST['txt_uname_email']);
+    $umail = strip_tags($_POST['txt_uname_email']);
+    $upass = strip_tags($_POST['txt_password']);
+
+    if ($login->doLogin($uname, $umail, $upass)) {
+        $login->redirect('home.php');
+    } else {
+        $error = "Mauvaise combinaison";
+    }
+}
+
+?>
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -418,6 +440,19 @@
 <body>
 
     <div class="tile">
+
+        <div id="error" style="text-align: center; color: red">
+            <?php
+            if (isset($error)) {
+            ?>
+                <div class="alert alert-danger">
+                    <?php echo "<h4> ⚠️" . $error . "</h4>"; ?> <br>
+                </div>
+            <?php
+            }
+            ?>
+        </div>
+
         <div class="tile-header">
             <h2 style="color: white; opacity: .75; font-size: 4rem; display: flex; justify-content: center; align-items: center; height: 100%;">D.G.I.E</h2>
         </div>
@@ -426,14 +461,14 @@
             <form id="form">
                 <label class="form-input">
                     <i class="material-icons">person</i>
-                    <input type="text" autofocus="true" required />
+                    <input type="text" autofocus="true" name="txt_uname_email" required />
                     <span class="label">Utilisateur</span>
                     <span class="underline"></span>
                 </label>
 
                 <label class="form-input">
                     <i class="material-icons">lock</i>
-                    <input type="password" required />
+                    <input type="password" name="txt_password" required />
                     <span class="label">Mot de passe</span>
                     <div class="underline"></div>
                 </label>
@@ -441,17 +476,6 @@
                 <div class="submit-container clearfix" style="margin-top: 2rem;">
                     <div id="submit" role="button" type="button" class="btn btn-irenic float-right" tabindex="0">
                         <span>Connection</span>
-                    </div>
-
-                    <div class="login-pending">
-                        <div class=spinner>
-                            <span class="dot1"></span>
-                            <span class="dot2"></span>
-                        </div>
-
-                        <div class="login-granted-content">
-                            <i class="material-icons">done</i>
-                        </div>
                     </div>
                 </div>
             </form>
