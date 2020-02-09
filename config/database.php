@@ -2,7 +2,6 @@
 
 /**
  * ------------------------------------------------------- getPdo()
- *  Permet la connexion à la base de donnée
  * @return PDO
  */
 function getPdo(): PDO
@@ -13,8 +12,8 @@ function getPdo(): PDO
             'root',
             'root',
             [
-                PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION, //Nous ramène des erreurs s'il y'en a permet à PHP de sortir de son mode silence par défaut
-                PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC //Je veux récupérer les tableaux en associatif ce sera plus simple
+                PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
+                PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC
             ]
         );
     } catch (Exception $e) {
@@ -27,7 +26,6 @@ function getPdo(): PDO
 
 /**
  * ------------------------------------------------------- redirect()
- * Permet la redirection instantanée
  * @param  mixed $url
  *
  * @return void
@@ -41,7 +39,6 @@ function redirect(string $url): void
 
 /**
  * ------------------------------------------------------- redirect_after_seconds()
- *  Permet la redirection après un nombre de secondes déterminés
  * @param  mixed $url
  * @param  mixed $seconds
  *
@@ -56,7 +53,6 @@ function redirect_after_seconds(string $url, int $seconds): void
 
 /**
  * ------------------------------------------------------- returnLastThreeArticles()
- * Permet de récupérer les 3 dernièrs articles de la table indiquées en paramètre
  * @param  mixed $table
  *
  * @return array
@@ -78,7 +74,6 @@ function returnLastThreeArticles(string $table): array
 
 /**
  * ------------------------------------------------------- findArticle()
- * Permet d'afficher les informations de de l'article de la table et l'idée passé en id
  * @param  mixed $table
  * @param  mixed $id
  *
@@ -95,10 +90,35 @@ function findArticle(string $table, int $id): array
     return $article;
 }
 
+function findPlusInfos(string $table): array
+{
+    $pdo = getPdo();
+    $query = $pdo->query("SELECT * FROM " . $table . " ORDER BY id DESC LIMIT 1");
+    $articles = $query->fetchAll();
+
+    return $articles;
+}
+
+
+/**
+ * ------------------------------------------------------- findBeforeLastArticle1()
+ *
+ * @param  mixed $table
+ *
+ * @return array
+ */
+function findBeforeLastArticle1(string $table): array
+{
+    $pdo = getPdo();
+    $query = $pdo->query('SELECT * FROM ' . $table . ' ORDER BY id DESC LIMIT 1,2');
+    $beforelast1 = $query->fetchAll();
+
+    return $beforelast1;
+}
+
 
 /**
  * ------------------------------------------------------- insertArticle()
- * Permet l'insertion des variables passées en paramètre dans la table indiquée aussi en paramètre
  * @param  mixed $table
  * @param  mixed $titre
  * @param  mixed $contenue
@@ -106,7 +126,7 @@ function findArticle(string $table, int $id): array
  *
  * @return object
  */
-function insertArticle(string $table, string $titre, string $contenue, string   $created_at): object
+function insertArticle(string $table, string $titre, string $contenue, string $created_at): object
 {
     $pdo = getPdo();
     $query = $pdo->prepare('INSERT INTO ' . $table . ' SET titre = :titre, contenue = :contenue, created_at = :created_at');
@@ -120,7 +140,6 @@ function insertArticle(string $table, string $titre, string $contenue, string   
 
 /**
  * ------------------------------------------------------- insertArticleWithPicture()
- *  Permet l'insertion des variables en plus d'une image passées en paramètre dans la table indiquée aussi en paramètre
  * @param  mixed $table
  * @param  mixed $img
  * @param  mixed $appeltitre
@@ -167,7 +186,6 @@ function insertArticleWithPicture(string $table, string $img, string $appeltitre
 
 /**
  * ------------------------------------------------------- updateArticle()
- * Permet la mise à jour des variables passées en paramètre dans la table indiquée aussi en paramètre
  * @param  mixed $table
  * @param  mixed $img
  * @param  mixed $appeltitre
@@ -205,7 +223,6 @@ function updateArticle(string $table, string $img, string $appeltitre, string $t
         }
     }
 
-    // $query = $pdo->prepare('INSERT INTO' . $table . ' SET img = :img, appeltitre = :appeltitre, titre = :titre, legende = :legende, chapeau = :chapeau, corps = :corps, auteur = :auteur, datepubli = :datepubli ');
     $query = $pdo->prepare('UPDATE ' . $table . ' SET img = :img, appeltitre = :appeltitre, titre = :titre, legende = :legende, chapeau = :chapeau, corps = :corps, auteur = :auteur, datepubli = :datepubli WHERE id = ' . $id . ';');
     $query->execute(compact('img', 'appeltitre', 'titre', 'legende', 'chapeau', 'corps', 'auteur', 'datepubli'));
 
@@ -215,7 +232,6 @@ function updateArticle(string $table, string $img, string $appeltitre, string $t
 
 /**
  * ------------------------------------------------------- deleteArticle()
- * Permet la suppression 
  * @param  mixed $table
  * @param  mixed $id
  *

@@ -6,7 +6,7 @@ require_once '../config/dbconfig.php';
 
 if (isset($_GET['edit_id']) && !empty($_GET['edit_id'])) {
     $id = $_GET['edit_id'];
-    $stmt_edit = $DB_con->prepare('SELECT id, titre, corps, couleur, datepubli FROM breves WHERE id = :uid');
+    $stmt_edit = $DB_con->prepare('SELECT id, appeltitre, titre, legende, chapeau, corps, auteur, datepubli, img FROM plusinfos WHERE id = :uid');
     $stmt_edit->execute(array(':uid' => $id));
     $edit_row = $stmt_edit->fetch(PDO::FETCH_ASSOC);
     extract($edit_row);
@@ -17,24 +17,60 @@ if (isset($_GET['edit_id']) && !empty($_GET['edit_id'])) {
 
 
 if (isset($_POST['btn_save_updates'])) {
+    $appeltitre = $_POST['appeltitre'];
     $titre = $_POST['titre'];
+    $legende = $_POST['legende'];
+    $chapeau = $_POST['chapeau'];
     $corps = $_POST['corps'];
-    $couleur = $_POST['couleur'];
+    $auteur = $_POST['auteur'];
     $datepubli = $_POST['datepubli'];
+
+    $imgFile = $_FILES['img']['name'];
+    $tmp_dir = $_FILES['img']['tmp_name'];
+    $imgSize = $_FILES['img']['size'];
+
+    if ($imgFile) {
+        $upload_dir = 'images/'; // upload directory	
+        $imgExt = strtolower(pathinfo($imgFile, PATHINFO_EXTENSION)); // get image extension
+        $valid_extensions = array('jpeg', 'jpg', 'png', 'gif'); // valid extensions
+        $image = rand(1000, 1000000) . "." . $imgExt;
+        if (in_array($imgExt, $valid_extensions)) {
+            if ($imgSize < 5000000) {
+                unlink($upload_dir . $edit_row['image']);
+                move_uploaded_file($tmp_dir, $upload_dir . $image);
+            } else {
+                $errMSG = "Désolé l'image est un peu trop grande.";
+            }
+        } else {
+            $errMSG = "Désolé seule les format 'jpeg', 'jpg', 'png', 'gif' sont autorisés";
+        }
+    } else {
+        // if no image selected the old image remain as it is.
+        $image = $edit_row['img']; // old image from database
+    }
+
 
     // if no error occured, continue ....
     if (!isset($errMSG)) {
-        $stmt = $DB_con->prepare('UPDATE breves
-									     SET titre 	   = 	:utitre,
+        $stmt = $DB_con->prepare('UPDATE plusinfos
+									     SET appeltitre = 	:uappeltitre,
+									     	 titre 	   = 	:utitre,
+									     	 legende   =	:ulegende,
+									     	 chapeau   =	:uchapeau,
 										     corps     = 	:ucorps,
-										     couleur    = 	:ucouleur,
-										     datepubli   = 	:udatepubli
+										     auteur    = 	:uauteur,
+										     datepubli   = 	:udatepubli,
+										     img     = 	:upic
 								       WHERE id=:uid');
 
+        $stmt->bindParam(':uappeltitre', $appeltitre);
         $stmt->bindParam(':utitre', $titre);
+        $stmt->bindParam(':ulegende', $legende);
+        $stmt->bindParam(':uchapeau', $chapeau);
         $stmt->bindParam(':ucorps', $corps);
-        $stmt->bindParam(':ucouleur', $couleur);
+        $stmt->bindParam(':uauteur', $auteur);
         $stmt->bindParam(':udatepubli', $datepubli);
+        $stmt->bindParam(':upic', $image);
         $stmt->bindParam(':uid', $id);
 
 
@@ -103,25 +139,47 @@ if (isset($_POST['btn_save_updates'])) {
                                 <form method="post" enctype="multipart/form-data" class="form-horizontal">
                                     <fieldset>
                                         <div class="form-group">
+                                            <label for="Image"><b>Image | <span style=" color: red;"> Taille image : Lxh ( 664x386 ) </b></span></label>
+                                            <input type="file" name="img" class="form-control" id="file" value="<?= $img ?>">
+                                            <img src="images/<?= $img ?>" width="400">
+
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="AppelDeTitre"><b>Appel de titre</b></label>
+                                            <input type="text" name="appeltitre" class="form-control" id="exampleInputEmail1" placeholder="Entrez l'appel de titre" value="<?= $appeltitre ?>">
+                                        </div>
+
+                                        <div class="form-group">
                                             <label for="titre"><b>Titre</b></label>
-                                            <input type="text" name="titre" class="form-control" id="titre" placeholder="Entrez le titre" value="<?= $titre ?>">
+                                            <input type="text" name="titre" class="form-control" id="exampleInputEmail1" placeholder="Entrez le titre" value="<?= $titre ?>">
+                                        </div>
+
+                                        <div class="form-group"> <label for="Legende">
+                                                <b>Legende</b></label>
+                                            <input type="text" name="legende" class="form-control" id="exampleInputEmail1" placeholder="Entrez la légende" value="<?= $legende ?>">
                                         </div>
 
                                         <div class="form-group">
-                                            <label for="corps"><b>Corps du Texte</b></label>
-                                            <input type="text" name="corps" class="form-control" id="corps" placeholder="Entrez le corps" value="<?= $corps ?>">
+                                            <label for="chapeau"><b>Chapeau</b></label>
+                                            <input type="text" name="chapeau" class="form-control" id="exampleInputEmail1" placeholder="Entrez le chapeau" value="<?= $chapeau ?>">
                                         </div>
-
-
-                                        <div class="form-group"> <label for="couleur">
-                                                <b>Couleur</b></label>
-                                            <input type="color" name="couleur" class="form-control w-25" id="couleur" placeholder="Choisis ta couleur" value="<?= $couleur ?>">
-                                        </div>
-
 
                                         <div class="form-group">
-                                            <label for="datepubli"><b>date de publication</b></label>
-                                            <input type="date" name="datepubli" class="form-control" id="datepubli" placeholder="Entrez la date de la publication" value="<?= $datepubli ?>">
+                                            <label for="chapeau"><b>Corps du Texte</b></label>
+                                            <textarea class="ckeditor" id="editeur" name="corps">
+                                                <?= $appeltitre ?>
+                                            </textarea>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="Legende"><b>Auteur</b></label>
+                                            <input type="text" name="auteur" class="form-control" id="exampleInputEmail1" placeholder="Auteur" value="<?= $auteur ?>">
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="Legende"><b>Date d'ajout</b>(<?= $datepubli ?>) </label>
+                                            <input type="date" name="datepubli" id="date_begin" class="form-control" value="<?= $datepubli ?>" />
                                         </div>
 
                                         <a href="../home.php" class="btn btn-outline-warning">Retour</a>

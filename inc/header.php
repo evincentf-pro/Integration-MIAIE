@@ -1,13 +1,17 @@
 <?php
+require_once 'config/database.php';
+
+$breves = returnLastThreeArticles('breves');
+
 $class = "class = 'menu_item current_page_item'";
 error_reporting(~E_NOTICE);
 ?>
 
 <!DOCTYPE html>
-<!--[if lte IE 8]><html class="ie8 no-js" lang="en-US"><![endif]-->
-<!--[if IE 9]><html class="ie9 no-js" lang="en-US"><![endif]-->
+<!--[if lte IE 8]><html class="ie8 no-js" lang="fr-FR"><![endif]-->
+<!--[if IE 9]><html class="ie9 no-js" lang="fr-FR"><![endif]-->
 <!--[if !(IE)]><!-->
-<html class="not-ie no-js" lang="fr-CI">
+<html class="not-ie no-js" lang="fr-FR">
 <!--<![endif]-->
 
 <head>
@@ -73,27 +77,14 @@ error_reporting(~E_NOTICE);
             <th>
               <div class="header-top breves">
                 <marquee direction="left" width="100%" scrollamount="10" onmouseover="this.stop()" onmouseout="this.start()" style="font-size:15px; padding:3px; ">
-                  &nbsp;
-                  <a href="#" target="_blank">
-                    <span style="background-color:#C00; color:#FFF; font-weight:bold; padding:4px 4px 5px 4px">URGENT</span>
+                  <?php foreach ($breves as $breve) : ?>
+                    &nbsp;
+                    <span style="background-color:<?= $breve['couleur'] ?>; color:#FFF; font-weight:bold; padding:4px 4px 5px 4px"><?= $breve['titre'] ?></span>
                     <span style="color:#000; font-weight:normal; font-family:Oswald;">
                       Les Concours Administratifs, des Personnels de Santé et de Promotion dans les grades A5, A6 et A7 session 2019 sont ouverts &nbsp;
                     </span>
-                  </a>
-                  &nbsp;
-                  <a href="#" target="_blank">
-                    <span style="background-color:blue; color:#FFF; font-weight:bold; padding:4px 4px 5px 4px">INFO</span>
-                    <span style="color:#000; font-weight:normal; font-family:Oswald;">
-                      Tous les actes signés (nomination, promotion, radiation, ...) sont à imprimer à partir de l'espace fonctionnaire des bénéficiaires. Aucun acte ne sera délivré au sein du ministère. Pour les arrêtés de radiation, consulter la rubrique "services offerts/retraite" &nbsp;
-                    </span>
-                  </a>
-                  &nbsp;
-                  <a href="#" target="_blank">
-                    <span style="background-color:Green; color:#FFF; font-weight:bold; padding:4px 4px 5px 4px">INFO</span>
-                    <span style="color:#000; font-weight:normal; font-family:Oswald;">
-                      Le paiement des frais d'établissement de l'Attestation de prêt bancaire se fera désormais en ligne sur le site du Ministère &nbsp;
-                    </span>
-                  </a>
+                    &nbsp;
+                  <?php endforeach ?>
                 </marquee>
               </div>
             </th>

@@ -43,10 +43,23 @@ if (isset($_GET['delete_id'])) {
                     <div class="card">
                         <div class="card-header">
                             <h1> <b> <i>Liste des articles à la Une</i></b></h1>
-                            <div style="text-align:right">
-                                <input type="text" name="">
-                                <button type="button" data-dismiss="modal">Recherche</button>
-                            </div>
+                            <table class="table">
+                                <tr>
+                                    <td>
+                                        <div>
+                                            <a href="add.php" class="btn btn-primary"> <i class="fa d-inline fa-lg fa-plus"></i> </a>
+                                        </div>
+                                    </td>
+                                    <td class="text-right">
+                                        <div class="input-group w-50">
+                                            <input type="text" class="form-control" placeholder="Votre recherche">
+                                            <div class="input-group-append">
+                                                <button class="btn btn-outline-secondary" type="button"><i class="fa fa-search" aria-hidden="true"></i></button>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
                         </div>
                         <div class="card-body">
                             <table class="table">

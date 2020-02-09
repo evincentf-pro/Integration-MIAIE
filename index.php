@@ -1,6 +1,19 @@
 <?php
 $page = 'accueil';
 require 'inc/header.php';
+
+$breves = findPlusInfos('breves');
+
+//Retourne les 3 derniers articles a la une
+$alaunes = returnLastThreeArticles('alaune');
+
+//Retourne l'avant dernier article
+$articles = findBeforeLastArticle1('articles');
+
+$plusinfos = findPlusInfos('plusinfos');
+
+$plusinfosseconds = findBeforeLastArticle1('plusinfos');
+
 ?>
 
 <style>
@@ -24,113 +37,36 @@ require 'inc/header.php';
       <article class="medium-8 large-8 columns">
         <div class="post-type-gallery">
           <div class="post-slider post-image owl-carousel">
-            <div class="post-alternate-3 item post">
-              <div class="entry-media">
-                <a href="actu.php" class="image-post  item-overlay">
-                  <img src="images/blog/large/05_people.jpg" alt="" />
-                </a>
 
-                <div id="banniere_description">
-                  <div class="entry-content" style="font-style:italic">
-                    <header class="entry-header">
-                      <h3 class="entry-title">
-                        <a href="actu.php">
-                          Immigration Irrégulière:
-                        </a>
-                      </h3>
-                      <h4 class="sous_titres">
-                        Troisième Forum Africain pour la resilience
-                      </h4>
-                    </header>
+            <?php foreach ($alaunes as $alaune) : ?>
+              <div class="post-alternate-3 item post">
+                <div class="entry-media">
+                  <a href="actu.php?id=<?= $alaune['id'] ?>" class="image-post  item-overlay">
+                    <img src="admin/slider/images/<?= $alaune['img'] ?>" alt="<?= $alaune['appeltitre'] ?>" width="100%">
+                  </a>
+
+                  <div id="banniere_description">
+                    <div class="entry-content" style="font-style:italic">
+                      <header class="entry-header">
+                        <h3 class="entry-title">
+                          <a href="actu.php">
+                            <?= $alaune['appeltitre'] ?>
+                          </a>
+                        </h3>
+                        <h4 class="sous_titres">
+                          <?= $alaune['titre'] ?>
+                        </h4>
+                      </header>
+                    </div>
+
+                    <footer class="entry-footer">
+                      <span class="posted-on"><?= $alaune['datepubli'] ?></span>
+                    </footer>
                   </div>
-
-                  <footer class="entry-footer">
-                    <span class="posted-on">22.03.2015</span>
-                  </footer>
                 </div>
               </div>
-            </div>
+            <?php endforeach; ?>
 
-            <div class="post-alternate-3 item post">
-              <div class="entry-media">
-                <a href="#" class="image-post  item-overlay">
-                  <img src="images/blog/large/1.jpg" alt="" />
-                </a>
-
-                <div id="banniere_description">
-                  <div class="entry-content" style="font-style:italic">
-                    <header class="entry-header">
-                      <h3 class="entry-title">
-                        <a href="#">
-                          Formation sur l'Immigration:
-                        </a>
-                      </h3>
-                      <h4 class="sous_titres">
-                        La salle de formation des cours
-                      </h4>
-                    </header>
-                  </div>
-
-                  <footer class="entry-footer">
-                    <span class="posted-on">22.03.2015</span>
-                  </footer>
-                </div>
-              </div>
-            </div>
-
-            <div class="post-alternate-3 item post">
-              <div class="entry-media">
-                <a href="#" class="image-post  item-overlay">
-                  <img src="images/blog/large/2.jpg" alt="" />
-                </a>
-
-                <div id="banniere_description">
-                  <div class="entry-content" style="font-style:italic">
-                    <header class="entry-header">
-                      <h3 class="entry-title">
-                        <a href="#">
-                          Le cabinet, la primature, et le ministère su plan
-                        </a>
-                      </h3>
-                      <h4 class="sous_titres">
-                        Troisième Forum Africain pour la resilience
-                      </h4>
-                    </header>
-                  </div>
-
-                  <footer class="entry-footer">
-                    <span class="posted-on">22.03.2015</span>
-                  </footer>
-                </div>
-              </div>
-            </div>
-
-            <div class="post-alternate-3 item post">
-              <div class="entry-media">
-                <a href="#" class="image-post  item-overlay">
-                  <img src="images/blog/large/3.jpg" alt="" />
-                </a>
-
-                <div id="banniere_description">
-                  <div class="entry-content" style="font-style:italic">
-                    <header class="entry-header">
-                      <h3 class="entry-title">
-                        <a href="#">
-                          Le cabinet du Munistère en audiance:
-                        </a>
-                      </h3>
-                      <h4 class="sous_titres">
-                        Le cabinet du Ministre Ally en audiance
-                      </h4>
-                    </header>
-                  </div>
-
-                  <footer class="entry-footer">
-                    <span class="posted-on">22.03.2015</span>
-                  </footer>
-                </div>
-              </div>
-            </div>
           </div>
         </div>
       </article>
@@ -170,97 +106,37 @@ require 'inc/header.php';
           <h2 class="section-title">A la une</h2>
 
           <div class="row post-list two-cols">
-
-            <article class="medium-6 large-6 columns">
-
-              <div class="post border post-alternate-1 slideUp">
-
-                <div class="entry-media">
-
-                  <a href="#" class="image-post item-overlay ">
-                    <img src="images/blog/middle/1.jpg" alt="" />
-                  </a>
-
-                  <header class="entry-header">
-                    <h3 class="entry-title"><a href="#">Séance de Formation </a></h3>
-                  </header>
-
-                </div>
-
-                <div class="entry-content">
-                  <p>
-                    Porta est iaculis, minim consequatur. Cubilia venenatis! Congue iure
-                    curabitur incididunt consequat, volutpat sapiente v
-                  </p>
-                </div>
-
-                <footer class="entry-footer">
-
-                  <div class="left">
-                    <span class="cat-links">
-                      <a href="#" rel="category tag">Lire plus ....</a>
-                    </span>
+            <?php foreach ($articles as $article) : ?>
+              <article class="medium-6 large-6 columns">
+                <div class="post border post-alternate-1 slideUp">
+                  <div class="entry-media">
+                    <a href="#" class="image-post item-overlay ">
+                      <img src="admin/articles/images/<?= $article['img'] ?>" alt="<?= $article['appeltitre'] ?>" width="100%">
+                    </a>
+                    <header class="entry-header">
+                      <h3 class="entry-title"><a href="article.php?id=<?= $article['id'] ?>"><?= $article['appeltitre'] ?> </a></h3>
+                    </header>
                   </div>
-
-                  <div class="right">
-                    <span class="posted-on"><a href="#">20.03.2015</a></span>
+                  <div class="entry-content">
+                    <p>
+                      <?= $article['chapeau'] ?>
+                    </p>
                   </div>
-
-                </footer>
-
-              </div>
-              <!--/ .post-extra-->
-
-            </article>
-
-            <article class="medium-6 large-6 columns">
-
-              <div class="post border post-alternate-1 slideUp">
-
-                <div class="entry-media">
-
-                  <a href="#" class="image-post item-overlay ">
-                    <img src="images/blog/middle/2.jpg" alt="" />
-                  </a>
-
-                  <header class="entry-header">
-                    <h3 class="entry-title"><a href="#">Séance de travail avec le cabinet </a></h3>
-                  </header>
-
+                  <footer class="entry-footer">
+                    <div class="left">
+                      <span class="cat-links">
+                        <a href="article.php?id=<?= $article['id'] ?>" rel="category tag">Lire plus ....</a>
+                      </span>
+                    </div>
+                    <div class="right">
+                      <span class="posted-on"><?= $article['datepubli'] ?></span>
+                    </div>
+                  </footer>
                 </div>
-
-                <div class="entry-content">
-                  <p>
-                    Porta est iaculis, minim consequatur. Cubilia venenatis! Congue iure
-                    curabitur incididunt consequat, volutpat sapiente v
-                  </p>
-                </div>
-
-                <footer class="entry-footer">
-
-                  <div class="left">
-                    <span class="cat-links">
-                      <a href="#" rel="category tag">Lire plus...</a>
-                    </span>
-                  </div>
-
-                  <div class="right">
-                    <span class="posted-on"><a href="#">20.03.2015</a></span>
-                  </div>
-
-                </footer>
-
-              </div>
-              <!--/ .post-extra-->
-
-            </article>
-
-
-
+                <!--/ .post-extra-->
+              </article>
+            <?php endforeach; ?>
           </div>
-          <!--/ .post-area-->
-
-
         </div>
 
       </div>
@@ -276,107 +152,75 @@ require 'inc/header.php';
           <h2 class="section-title">Plus d'Infos</h2>
 
           <div class="row post-list full-width">
+            <?php foreach ($plusinfos as $plusinfo) : ?>
+              <article class="medium-12 large-12 columns">
 
-            <article class="medium-12 large-12 columns">
+                <div class="post post-alternate-3 slideUp">
 
-              <div class="post post-alternate-3 slideUp">
+                  <div class="entry-media">
 
-                <div class="entry-media">
+                    <a href="plusinfos.php?id=<?= $plusinfo['id'] ?>" class="image-post item-overlay ">
+                      <img src="admin/plusinfos/images/<?= $plusinfo['img'] ?>" alt="<?= $plusinfo['appeltitre'] ?>" width="100%">
+                    </a>
 
-                  <a href="#" class="image-post item-overlay ">
-                    <img src="images/blog/14_blog.jpg" alt="" />
-                  </a>
+                    <div class="entry-content">
 
-                  <div class="entry-content">
+                      <header class="entry-header">
+                        <h3 class="entry-title">
+                          <a href="plusdinfo.php?<?= $plusinfo['id'] ?>"><?= $plusinfo['appeltitre'] ?></a>
+                        </h3>
+                      </header>
 
-                    <header class="entry-header">
-                      <h3 class="entry-title">
-                        <a href="#">Communiqué du Ministre </a>
-                      </h3>
-                    </header>
+                      <footer class="entry-footer">
+                        <span class="posted-on"><a href="#"><?= $plusinfo['datepubli'] ?></a></span>
+                        <span class="byline"><a href="#"><?= $plusinfo['auteur'] ?></a></span>
+                      </footer>
 
-                    <footer class="entry-footer">
-                      <span class="posted-on"><a href="#">20.03.2015</a></span>
-                      <span class="byline"><a href="#">Alex TM</a></span>
-                      <span class="comments-link"><a href="#">3</a></span>
-                    </footer>
+                    </div>
 
                   </div>
 
                 </div>
+                <!--/ .post-->
 
-              </div>
-              <!--/ .post-->
-
-            </article>
-
+              </article>
+            <?php endforeach ?>
           </div>
 
+
           <div class="row post-list two-cols">
+            <?php foreach ($plusinfosseconds as $plusinfossecond) : ?>
+              <article class="medium-6 large-6 columns">
 
-            <article class="medium-6 large-6 columns">
+                <div class="post post-alternate-3 slideUp">
 
-              <div class="post post-alternate-3 slideUp">
+                  <div class="entry-media">
 
-                <div class="entry-media">
+                    <a href="plusdinfo.php?<?= $plusinfossecond['id'] ?>" class="image-post item-overlay ">
+                      <img src="admin/plusinfos/images/<?= $plusinfossecond['img'] ?>" alt="<?= $plusinfossecond['appeltitre'] ?>" width="100%">
+                    </a>
 
-                  <a href="#" class="image-post item-overlay ">
-                    <img src="images/blog/05_blog.jpg" alt="" />
-                  </a>
+                    <div class="entry-content">
 
-                  <div class="entry-content">
+                      <header class="entry-header">
+                        <h3 class="entry-title">
+                          <a href="plusdinfo.php?<?= $plusinfossecond['id'] ?>"><?= $plusinfossecond['appeltitre'] ?></a>
+                        </h3>
+                      </header>
 
-                    <header class="entry-header">
-                      <h3 class="entry-title">
-                        <a href="#">Syria likely shot down U.S. dr Côte d’Ivoire: Les diplômés ivoiriens de la diaspora se mettent en réseau</a>
-                      </h3>
-                    </header>
+                      <footer class="entry-footer">
+                        <span class="posted-on"><?= $plusinfossecond['datepubli'] ?></span>
+                        <span class="byline"><a href="#"><?= $plusinfossecond['auteur'] ?></a></span>
+                      </footer>
 
-                    <footer class="entry-footer">
-                      <span class="posted-on"><a href="#">22.03.2015</a></span>
-                      <span class="byline"><a href="#">Alex TM</a></span>
-                      <span class="comments-link"><a href="#">1</a></span>
-                    </footer>
-
-                  </div>
-
-                </div>
-              </div>
-              <!--/ .post-extra-->
-
-            </article>
-
-            <article class="medium-6 large-6 columns">
-
-              <div class="post post-alternate-3 slideUp" data-os-animation="slideUpRun" data-os-animation-delay="0s">
-
-                <div class="entry-media">
-
-                  <a href="#" class="image-post item-overlay ">
-                    <img src="images/blog/09_blog.jpg" alt="" />
-                  </a>
-
-                  <div class="entry-content">
-
-                    <header class="entry-header">
-                      <h3 class="entry-title">
-                        <a href="#">Varius animi dolores pellent</a>
-                      </h3>
-                    </header>
-
-                    <footer class="entry-footer">
-                      <span class="posted-on"><a href="#">27.02.2015</a></span>
-                      <span class="byline"><a href="#">Alex TM</a></span>
-                      <span class="comments-link"><a href="#">3</a></span>
-                    </footer>
+                    </div>
 
                   </div>
-
                 </div>
-              </div>
-              <!--/ .post-extra-->
+                <!--/ .post-extra-->
 
-            </article>
+              </article>
+            <?php endforeach ?>
 
           </div>
           <!--/ .post-area-->
@@ -481,7 +325,7 @@ require 'inc/header.php';
               <!--/ .post-extra-->
 
             </article>
-            <img src="images/baner.jpg" alt="">
+            <img src="images/baner.jp2" alt="">
           </div>
           <!--/ .post-area-->
 

@@ -4,27 +4,69 @@ error_reporting(~E_NOTICE); // avoid notice
 require_once '../config/dbconfig.php';
 
 if (isset($_POST['btnsave'])) {
+    $appeltitre = $_POST['appeltitre'];
     $titre = $_POST['titre'];
+    $legende = $_POST['legende'];
+    $chapeau = $_POST['chapeau'];
     $corps = $_POST['corps'];
-    $couleur = $_POST['couleur'];
+    $auteur = $_POST['auteur'];
     $datepubli = $_POST['datepubli'];
 
-    if (empty($titre)) {
+    $imgFile = $_FILES['img']['name'];
+    $tmp_dir = $_FILES['img']['tmp_name'];
+    $imgSize = $_FILES['img']['size'];
+
+
+    if (empty($appeltitre)) {
         $errMSG = "titre manquant";
+    } else if (empty($titre)) {
+        $errMSG = "Titre manquant.";
+    } else if (empty($legende)) {
+        $errMSG = "legende manquante";
+    } else if (empty($chapeau)) {
+        $errMSG = "chapeau manquant";
     } else if (empty($corps)) {
-        $errMSG = "Le corps du texte est manquant.";
-    } else if (empty($couleur)) {
-        $errMSG = "Couleur manquante";
+        $errMSG = "Corps manquant";
+    } else if (empty($auteur)) {
+        $errMSG = "auteur manquant";
     } else if (empty($datepubli)) {
-        $errMSG = "date manquante";
+        $errMSG = "Date manquante.";
+    } else if (empty($imgFile)) {
+        $errMSG = "Oups vous avez oublié la photo";
+    } else {
+        $upload_dir = 'images/';
+
+        $imgExt = strtolower(pathinfo($imgFile, PATHINFO_EXTENSION));
+
+
+        $valid_extensions = array('jpeg', 'jpg', 'png', 'gif');
+
+
+        $image = rand(1000, 1000000) . "." . $imgExt;
+
+
+        if (in_array($imgExt, $valid_extensions)) {
+
+            if ($imgSize < 5000000) {
+                move_uploaded_file($tmp_dir, $upload_dir . $image);
+            } else {
+                $errMSG = "Désolé l'image est un peu trop grande.";
+            }
+        } else {
+            $errMSG = "Désolé seule les format 'jpeg', 'jpg', 'png', 'gif' sont autorisés";
+        }
     }
 
     if (!isset($errMSG)) {
-        $stmt = $DB_con->prepare('INSERT INTO breves(titre, corps, couleur, datepubli) VALUES(:utitre, :ucorps, :ucouleur, :udatepubli)');
+        $stmt = $DB_con->prepare('INSERT INTO plusinfos(appeltitre, titre, legende, chapeau, corps, auteur, datepubli, img) VALUES(:uappeltitre, :utitre, :ulegende, :uchapeau, :ucorps, :uauteur, :udatepubli, :upic)');
+        $stmt->bindParam(':uappeltitre', $appeltitre);
         $stmt->bindParam(':utitre', $titre);
+        $stmt->bindParam(':ulegende', $legende);
+        $stmt->bindParam(':uchapeau', $chapeau);
         $stmt->bindParam(':ucorps', $corps);
-        $stmt->bindParam(':ucouleur', $couleur);
+        $stmt->bindParam(':uauteur', $auteur);
         $stmt->bindParam(':udatepubli', $datepubli);
+        $stmt->bindParam(':upic', $image);
 
         if ($stmt->execute()) {
             $successMSG = "Le nouvel enregistrement a bien été fait, vous serez rédirigé d'ici 5 secondes";
@@ -88,27 +130,44 @@ if (isset($_POST['btnsave'])) {
 
                                 <form method="post" enctype="multipart/form-data" class="form-horizontal">
                                     <fieldset>
+                                        <div class="form-group">
+                                            <label for="Image"><b>Image | <span style=" color: red;"> Taille image : Lxh ( 664x386 )</b></span></label>
+                                            <input type="file" name="img" class="form-control" id="file">
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="AppelDeTitre"><b>Appel de titre</b></label>
+                                            <input type="text" name="appeltitre" class="form-control" id="Appeldetitre" placeholder="Entrez l'appel de titre" value="<?= $appeltitre ?>">
+                                        </div>
 
                                         <div class="form-group">
                                             <label for="titre"><b>Titre</b></label>
-                                            <input type="text" name="titre" class="form-control" id="titre" placeholder="Entrez le titre" value="<?= $titre ?>">
+                                            <input type="text" name="titre" class="form-control" id="titre" placeholder="Entrez le titre">
+                                        </div>
+
+                                        <div class="form-group"> <label for="Legende">
+                                                <b>Legende</b></label>
+                                            <input type="text" name="legende" class="form-control" id="legende" placeholder="Entrez la légende">
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="chapeau"><b>Chapeau</b></label>
+                                            <input type="text" name="chapeau" class="form-control" id="chapeau" placeholder="Entrez le chapeau">
                                         </div>
 
                                         <div class="form-group">
                                             <label for="corps"><b>Corps du Texte</b></label>
-                                            <input type="text" name="corps" class="form-control" id="corps" placeholder="Entrez le corps" value="<?= $corps ?>">
+                                            <textarea class="ckeditor" id="editeur" name="corps"></textarea>
                                         </div>
-
-
-                                        <div class="form-group"> <label for="couleur">
-                                                <b>Couleur</b></label>
-                                            <input type="color" name="couleur" class="form-control w-25" id="couleur" placeholder="Choisis ta couleur">
-                                        </div>
-
 
                                         <div class="form-group">
-                                            <label for="datepubli"><b>date de publication</b></label>
-                                            <input type="date" name="datepubli" class="form-control" id="datepubli" placeholder="Entrez la date de fermeture">
+                                            <label for="auteur"><b>Auteur</b></label>
+                                            <input type="text" name="auteur" class="form-control" id="auteur" placeholder="Auteur">
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="date"><b>Date d'ajout</b></label>
+                                            <input type="date" name="datepubli" id="date" class="form-control" />
                                         </div>
 
                                         <a href="../home.php" class="btn btn-outline-warning">Retour</a>
@@ -127,4 +186,6 @@ if (isset($_POST['btnsave'])) {
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-    </bodylien
+</body>
+
+</html>

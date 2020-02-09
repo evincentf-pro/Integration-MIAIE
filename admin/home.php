@@ -219,6 +219,16 @@ $userRow = $stmt->fetch(PDO::FETCH_ASSOC);
                         </div>
                     </div>
                 </div>
+                <div class="col-md-4">
+                    <div class="card">
+                        <h4 class="card-title text-center" style="color: orange"><b> Plus d'Infos</b></h4>
+                        <img src="assets\img\home\plusinfos.jpg" class="card-img-top" alt="Plus d'Infos">
+                        <div class="card-body text-center">
+                            <a href="plusinfos\add.php" class="btn btn-success">Ajouter</a>
+                            <a href="plusinfos\index.php" class="btn btn-success">Lister</a>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
