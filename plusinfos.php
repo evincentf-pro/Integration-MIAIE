@@ -13,18 +13,6 @@ $plusinfos = findArticle('plusinfos', $_GET['id']);
 <!-- - - - - - - - MAIN  - - - - - - - -->
 <main id="content" class="row no_sidebar" style="margin-top: 25px">
 
-    <!-- <div class="large-12 columns">
-			<div class="page-title">
-
-				<h1>Full Width</h1>
-
-				<div class="breadcrumbs">
-					<a href="home.html" title="">Home</a>
-					Full Width
-				</div>
-			</div>
-		</div> -->
-
     <div id="main" class="medium-12 large-12 columns">
 
         <div class="row post-list full-width">
@@ -43,10 +31,11 @@ $plusinfos = findArticle('plusinfos', $_GET['id']);
                     </header>
 
                     <div class="post border post-classic slideUp">
-                        <span class="image-post">
-                            <img src="admin/plusinfos/images/<?= $plusinfo['img'] ?>" alt="<?= $plusinfo['appeltitre'] ?>" width="100%">
-                        </span>
-
+                        <div class="" style="text-align: center">
+                            <span class="image-post">
+                                <img src="admin/plusinfos/images/<?= $plusinfo['img'] ?>" alt="<?= $plusinfo['appeltitre'] ?>" width="75%">
+                            </span>
+                        </div>
                         <div style="font-size: 150%; color:black; text-align: justify;">
                             <br>
                             <p>

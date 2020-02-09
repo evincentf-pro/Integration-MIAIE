@@ -42,7 +42,7 @@ if (isset($_POST['btn-login'])) {
         }
 
         body {
-            background: linear-gradient(to bottom, green, #ffffff);
+            background: linear-gradient(to bottom, #437b20, #ffffff);
             color: #454749;
             display: flex;
             align-items: center;
@@ -143,12 +143,12 @@ if (isset($_POST['btn-login'])) {
 
         .form-input input:hover~.underline,
         .form-input input:focus~.underline {
-            background-color: green;
+            background-color: orange;
         }
 
         .form-input input:hover~.label,
         .form-input input:focus~.label {
-            color: green;
+            color: orange;
         }
 
         .form-input input:focus~.underline {
@@ -187,7 +187,7 @@ if (isset($_POST['btn-login'])) {
         }
 
         .btn-irenic {
-            background-color: green;
+            background-color: orange;
             color: white;
         }
 
@@ -209,7 +209,7 @@ if (isset($_POST['btn-login'])) {
         }
 
         .btn-tranquil {
-            background-color: green;
+            background-color: orange;
             color: white;
         }
 
@@ -299,7 +299,7 @@ if (isset($_POST['btn-login'])) {
 
         .submit-container #submit.pending {
             transform: scale(0.55, 1.5);
-            background-color: green;
+            background-color: orange;
             border-radius: 50%;
             opacity: 1;
         }
@@ -331,7 +331,7 @@ if (isset($_POST['btn-login'])) {
         .submit-container .login-pending {
             height: 3rem;
             width: 3rem;
-            background-color: green;
+            background-color: orange;
             position: absolute;
             border-radius: 50%;
             right: 1rem;
@@ -379,7 +379,7 @@ if (isset($_POST['btn-login'])) {
             width: 100%;
             height: 100%;
             border-radius: 50%;
-            background-color: green;
+            background-color: orange;
             opacity: 0.6;
             position: absolute;
             top: 0;
@@ -439,7 +439,7 @@ if (isset($_POST['btn-login'])) {
 
 <body>
 
-    <div class="tile">
+    <div class="tile" style="margin-top: -10%">
 
         <div id="error" style="text-align: center; color: red">
             <?php
@@ -454,11 +454,11 @@ if (isset($_POST['btn-login'])) {
         </div>
 
         <div class="tile-header">
-            <h2 style="color: white; opacity: .75; font-size: 4rem; display: flex; justify-content: center; align-items: center; height: 100%;">D.G.I.E</h2>
+            <h2 style="color: white; opacity: .75; font-size: 4rem; display: flex; justify-content: center; align-items: center; height: 100%;">M.I.A.I.E</h2>
         </div>
 
         <div class="tile-body">
-            <form id="form">
+            <form method="post" id="login-form">
                 <label class="form-input">
                     <i class="material-icons">person</i>
                     <input type="text" autofocus="true" name="txt_uname_email" required />
@@ -473,14 +473,16 @@ if (isset($_POST['btn-login'])) {
                     <div class="underline"></div>
                 </label>
 
+
+
                 <div class="submit-container clearfix" style="margin-top: 2rem;">
-                    <div id="submit" role="button" type="button" class="btn btn-irenic float-right" tabindex="0">
-                        <span>Connection</span>
-                    </div>
+                    <input type="submit" value="Connexion" class="btn btn-irenic float-right" name="btn-login">
                 </div>
-            </form>
         </div>
+        </form>
     </div>
+    </div>
+
 
 </body>
 

@@ -18,7 +18,7 @@ try {
 class Database
 {
     private $host = "localhost";
-    private $db_name = "miaie";
+    private $db_name = "integration";
     private $username = "root";
     private $password = "root";
     public $conn;

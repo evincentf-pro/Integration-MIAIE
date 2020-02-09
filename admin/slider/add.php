@@ -131,7 +131,7 @@ if (isset($_POST['btnsave'])) {
                                 <form method="post" enctype="multipart/form-data" class="form-horizontal">
                                     <fieldset>
                                         <div class="form-group">
-                                            <label for="Image"><b>Image | <span style=" color: red;"> Taille image : Lxh ( 664x386 )</b></span></label>
+                                            <label for="Image"><b>Image | <span style=" color: red;"> Taille image : Lxh ( 1080 x 720 )</b></span></label>
                                             <input type="file" name="img" class="form-control" id="file">
                                         </div>
 

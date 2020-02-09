@@ -73,6 +73,36 @@ function returnLastThreeArticles(string $table): array
 
 
 /**
+ * ------------------------------------------------------- returnLastTwoArticles()
+ * @param  mixed $table
+ *
+ * @return array
+ */
+function returnLastTwoArticles(string $table): array
+{
+    $pdo = getPdo();
+    $query = $pdo->query("SELECT * FROM " . $table . " ORDER BY id DESC LIMIT 2");
+    $articles = $query->fetchAll();
+
+    if (empty(count($articles))) {
+        echo "La base de données ne contient aucun articles <br><br>";
+        return $articles;
+    } else {
+        return $articles;
+    }
+}
+
+
+function returnOne(string $table): array
+{
+    $pdo = getPdo();
+    $query = $pdo->query("SELECT * FROM " . $table);
+    $articles = $query->fetchAll();
+    return $articles;
+}
+
+
+/**
  * ------------------------------------------------------- findArticle()
  * @param  mixed $table
  * @param  mixed $id

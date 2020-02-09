@@ -191,8 +191,8 @@ if (isset($_GET['delete_id'])) {
                                                     </div>
                                                 </td>
                                                 <td>
-                                                    <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#<?= $corps; ?>" title="cliquez ici pour afficher le texte">Afficher</button>
-                                                    <div id="<?= $corps; ?>" class="modal fade" role="dialog">
+                                                    <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#<?= $id; ?>" title="cliquez ici pour afficher le texte">Afficher</button>
+                                                    <div id="<?= $id; ?>" class="modal fade" role="dialog">
                                                         <div class="modal-dialog">
                                                             <div class="modal-content">
                                                                 <div class="modal-header">

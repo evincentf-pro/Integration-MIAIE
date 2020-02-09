@@ -2,6 +2,38 @@ html {
   scroll-behavior: smooth;
 }
 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.containerx {
+  width: 355px;
+  height: 300px;
+  overflow: hidden;
+}
+ul.scrollul {
+  list-style: none;
+  position: relative;
+}
+li.scrollli {
+  height: 100px;
+  text-align: center;
+  border-bottom: 1px solid #333;
+}
+h2.scrollh2 {
+  color: #000;
+  padding-top: 10px;
+}
+p.scroll {
+  padding: 10px;
+  color: black;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
 #banniere_description {
   position: absolute;
   bottom: 0;

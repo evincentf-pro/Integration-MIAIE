@@ -47,9 +47,11 @@ error_reporting(~E_NOTICE);
   <!-- Modernizr
 	================================================== -->
   <script src="js/vendor/jquery.modernizr.js"></script>
+
+  <script src="js/vince.js"></script>
 </head>
 
-<body class="animated">
+<body class="animated" onLoad="scrollDiv_init()">
 
   <div id="fb-root"></div>
   <script async defer crossorigin="anonymous" src="https://connect.facebook.net/fr_FR/sdk.js#xfbml=1&version=v3.2"></script>
@@ -72,7 +74,7 @@ error_reporting(~E_NOTICE);
         <tbody>
           <tr>
             <th>
-              <img src="images/blog/flash.png" alt="flash" width="100%" />
+              <img src="images/blog/flash.png" alt="flash" width="120%" />
             </th>
             <th>
               <div class="header-top breves">
@@ -81,7 +83,7 @@ error_reporting(~E_NOTICE);
                     &nbsp;
                     <span style="background-color:<?= $breve['couleur'] ?>; color:#FFF; font-weight:bold; padding:4px 4px 5px 4px"><?= $breve['titre'] ?></span>
                     <span style="color:#000; font-weight:normal; font-family:Oswald;">
-                      Les Concours Administratifs, des Personnels de Santé et de Promotion dans les grades A5, A6 et A7 session 2019 sont ouverts &nbsp;
+                      <?= $breve['corps'] ?> &nbsp;
                     </span>
                     &nbsp;
                   <?php endforeach ?>

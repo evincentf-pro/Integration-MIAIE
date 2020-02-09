@@ -168,7 +168,7 @@ if (isset($_POST['btn_save_updates'])) {
                                         <div class="form-group">
                                             <label for="chapeau"><b>Corps du Texte</b></label>
                                             <textarea class="ckeditor" id="editeur" name="corps">
-                                                <?= $appeltitre ?>
+                                                <?= $corps ?>
                                             </textarea>
                                         </div>
 

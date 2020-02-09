@@ -2,17 +2,23 @@
 $page = 'accueil';
 require 'inc/header.php';
 
-$breves = findPlusInfos('breves');
-
 //Retourne les 3 derniers articles a la une
 $alaunes = returnLastThreeArticles('alaune');
 
 //Retourne l'avant dernier article
-$articles = findBeforeLastArticle1('articles');
+$articles = findBeforeLastArticle1('alaune');
 
 $plusinfos = findPlusInfos('plusinfos');
 
+$flashs = findPlusInfos('flashinfos');
+
 $plusinfosseconds = findBeforeLastArticle1('plusinfos');
+
+$events = findPlusInfos('events');
+
+$dgias = returnLastTwoArticles('alaune_dgia');
+
+$dgies = returnLastTwoArticles('alaune_dgie');
 
 ?>
 
@@ -111,15 +117,15 @@ $plusinfosseconds = findBeforeLastArticle1('plusinfos');
                 <div class="post border post-alternate-1 slideUp">
                   <div class="entry-media">
                     <a href="#" class="image-post item-overlay ">
-                      <img src="admin/articles/images/<?= $article['img'] ?>" alt="<?= $article['appeltitre'] ?>" width="100%">
+                      <img src="admin/slider/images/<?= $article['img'] ?>" alt="<?= $article['appeltitre'] ?>" width="100%">
                     </a>
-                    <header class="entry-header">
+                    <!-- <header class="entry-header">
                       <h3 class="entry-title"><a href="article.php?id=<?= $article['id'] ?>"><?= $article['appeltitre'] ?> </a></h3>
-                    </header>
+                    </header> -->
                   </div>
                   <div class="entry-content">
                     <p>
-                      <?= $article['chapeau'] ?>
+                      <?= $article['appeltitre'] ?>
                     </p>
                   </div>
                   <footer class="entry-footer">
@@ -142,206 +148,138 @@ $plusinfosseconds = findBeforeLastArticle1('plusinfos');
       </div>
 
     </div>
-    <!--/ .section -->
 
     <div class="section margin-bottom-20 columns medium-12 large-12 background-color-off">
-
       <div class="tmm_row row">
-
         <div class="relative">
           <h2 class="section-title">Plus d'Infos</h2>
 
           <div class="row post-list full-width">
             <?php foreach ($plusinfos as $plusinfo) : ?>
               <article class="medium-12 large-12 columns">
-
                 <div class="post post-alternate-3 slideUp">
-
                   <div class="entry-media">
-
                     <a href="plusinfos.php?id=<?= $plusinfo['id'] ?>" class="image-post item-overlay ">
                       <img src="admin/plusinfos/images/<?= $plusinfo['img'] ?>" alt="<?= $plusinfo['appeltitre'] ?>" width="100%">
                     </a>
-
                     <div class="entry-content">
-
                       <header class="entry-header">
                         <h3 class="entry-title">
                           <a href="plusdinfo.php?<?= $plusinfo['id'] ?>"><?= $plusinfo['appeltitre'] ?></a>
                         </h3>
                       </header>
-
                       <footer class="entry-footer">
                         <span class="posted-on"><a href="#"><?= $plusinfo['datepubli'] ?></a></span>
                         <span class="byline"><a href="#"><?= $plusinfo['auteur'] ?></a></span>
                       </footer>
-
                     </div>
-
                   </div>
-
                 </div>
-                <!--/ .post-->
-
               </article>
             <?php endforeach ?>
           </div>
 
-
           <div class="row post-list two-cols">
             <?php foreach ($plusinfosseconds as $plusinfossecond) : ?>
               <article class="medium-6 large-6 columns">
-
                 <div class="post post-alternate-3 slideUp">
-
                   <div class="entry-media">
-
                     <a href="plusdinfo.php?<?= $plusinfossecond['id'] ?>" class="image-post item-overlay ">
                       <img src="admin/plusinfos/images/<?= $plusinfossecond['img'] ?>" alt="<?= $plusinfossecond['appeltitre'] ?>" width="100%">
                     </a>
-
                     <div class="entry-content">
-
                       <header class="entry-header">
                         <h3 class="entry-title">
                           <a href="plusdinfo.php?<?= $plusinfossecond['id'] ?>"><?= $plusinfossecond['appeltitre'] ?></a>
                         </h3>
                       </header>
-
                       <footer class="entry-footer">
                         <span class="posted-on"><?= $plusinfossecond['datepubli'] ?></span>
                         <span class="byline"><a href="#"><?= $plusinfossecond['auteur'] ?></a></span>
                       </footer>
-
                     </div>
-
                   </div>
                 </div>
-                <!--/ .post-extra-->
-
               </article>
             <?php endforeach ?>
-
           </div>
-          <!--/ .post-area-->
 
         </div>
-
       </div>
-
     </div>
-    <!--/ .section -->
+
+    <img src="images/ban.png" alt="">
 
     <div class="section margin-bottom-10 columns medium-12 large-12 background-color-off">
-
       <div class="tmm_row row">
 
         <div class="relative">
           <h2 class="section-title">Intégration Africaine</h2>
 
           <div class="row post-list two-cols">
-
-            <article class="medium-6 large-6 columns">
-
-              <div class="post border post-classic slideUp" data-os-animation="slideUpRun" data-os-animation-delay="0s">
-
-                <a href="#" class="image-post item-overlay ">
-                  <img src="images/blog/20_blog.jpg" alt="" />
-                </a>
-
-                <header class="entry-header">
-                  <h3 class="entry-title"><a href="#">Congue iure curabitur inc </a></h3>
-                </header>
-
-                <div class="entry-content">
-                  <p>Porta est iaculis, minim consequatur. Cubilia venenatis! Congue iure
-                    curabitur incididunt consequat, volutpat </p>
+            <?php foreach ($dgias as $dgia) : ?>
+              <article class="medium-6 large-6 columns">
+                <div class="post border post-classic slideUp" data-os-animation="slideUpRun" data-os-animation-delay="0s">
+                  <a href="actu-dgia.php?id=<?= $dgia['id'] ?> " class="image-post item-overlay ">
+                    <img src="admin-dgia/plusinfos/images/<?= $dgia['img'] ?>" alt="<?= $dgia['appeltitre'] ?>" width="100%">
+                  </a>
+                  <header class="entry-header">
+                    <h3 class="entry-title"><a href="actu-dgia.php?id=<?= $dgia['id'] ?> "><?= $dgia['appeltitre'] ?> </a></h3>
+                  </header>
+                  <footer class="entry-footer">
+                    <div class="right">
+                      <span class="posted-on"><a href="#"><?= $dgia['datepubli'] ?> </a></span>
+                    </div>
+                  </footer>
                 </div>
-
-                <footer class="entry-footer">
-
-                  <div class="left">
-                    <span class="cat-links"><a href="#" rel="category tag">Economics</a></span>
-                  </div>
-
-                  <div class="right">
-                    <span class="posted-on"><a href="#">22.03.2015</a></span>
-                    <span class="comments-link"><a href="#">5</a></span>
-                    <a class="post-like like-qty voted" data-post_id="154" href="#"><span class="vote-count">1</span></a>
-                  </div>
-
-                </footer>
-              </div>
-              <!--/ .post-classic-->
-
-            </article>
-
-            <article class="medium-6 large-6 columns">
-
-              <div class="post border post-classic slideUp" data-os-animation="slideUpRun" data-os-animation-delay="0s">
-
-                <a href="#" class="image-post item-overlay ">
-                  <img src="images/blog/11_blog.jpg" alt="" />
-                </a>
-
-                <header class="entry-header">
-                  <h3 class="entry-title"><a href="#">Ornare, netus,
-                      repellendu </a></h3>
-                </header>
-
-                <div class="entry-content">
-                  <p>Porta est iaculis, minim consequatur. Cubilia venenatis! Congue iure
-                    curabitur incididunt consequat, volutpat </p>
-                </div>
-
-                <footer class="entry-footer">
-
-                  <div class="left">
-                    <span class="cat-links"><a href="#" rel="category tag">People</a></span>
-                  </div>
-
-                  <div class="right">
-                    <span class="posted-on"><a href="#">22.03.2015</a></span>
-                    <span class="comments-link"><a href="#">2</a></span>
-                    <a class="post-like like-qty" data-post_id="152" href="#"><span class="vote-count">0</span></a>
-                  </div>
-
-                </footer>
-              </div>
-              <!--/ .post-extra-->
-
-            </article>
-
+              </article>
+            <?php endforeach ?>
           </div>
-          <!--/ .post-area-->
-
-          <div class="row post-list full-width">
-
-            <article class="medium-12 large-12 columns">
-
-              <div class="post border post-classic elementFade">
-
-              </div>
-              <!--/ .post-extra-->
-
-            </article>
-            <img src="images/baner.jp2" alt="">
-          </div>
-          <!--/ .post-area-->
-
         </div>
 
       </div>
 
     </div>
-    <!--/ .section -->
+
+    <div class="section margin-bottom-10 columns medium-12 large-12 background-color-off">
+      <div class="tmm_row row">
+
+        <div class="relative">
+          <h2 class="section-title">Ivoiriens de l'Extérieur</h2>
+
+          <div class="row post-list two-cols">
+            <?php foreach ($dgies as $dgie) : ?>
+              <article class="medium-6 large-6 columns">
+                <div class="post border post-classic slideUp" data-os-animation="slideUpRun" data-os-animation-delay="0s">
+                  <a href="actu-dgie.php?id=<?= $dgie['id'] ?> " class="image-post item-overlay ">
+                    <img src="admin-dgie/plusinfos/images/<?= $dgie['img'] ?>" alt="<?= $dgie['appeltitre'] ?>" width="100%">
+                  </a>
+                  <header class="entry-header">
+                    <h3 class="entry-title"><a href="actu-dgie.php?id=<?= $dgie['id'] ?> "><?= $dgie['appeltitre'] ?> </a></h3>
+                  </header>
+                  <footer class="entry-footer">
+                    <div class="right">
+                      <span class="posted-on"><a href="#"><?= $dgie['datepubli'] ?> </a></span>
+                    </div>
+                  </footer>
+                </div>
+              </article>
+            <?php endforeach ?>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+    <img src="images/ban.png" alt="">
 
     <div class="section margin-bottom-10 columns medium-12 large-12 background-color-off">
 
       <div class="tmm_row row">
 
         <div class="relative">
-          <h2 class="section-title">Ivoiriens de l'Extérieur</h2>
+          <h2 class="section-title">Bureau de l'Intégration</h2>
 
           <div class="row post-list two-cols">
 
@@ -350,17 +288,12 @@ $plusinfosseconds = findBeforeLastArticle1('plusinfos');
               <div class="post border post-classic slideUp" data-os-animation="slideUpRun" data-os-animation-delay="0s">
 
                 <a href="#" class="image-post item-overlay ">
-                  <img src="images/blog/20_blog.jpg" alt="" />
+                  <img src="images/bipia1.jpg" alt="" />
                 </a>
 
                 <header class="entry-header">
                   <h3 class="entry-title"><a href="#">Congue iure curabitur inc </a></h3>
                 </header>
-
-                <div class="entry-content">
-                  <p>Porta est iaculis, minim consequatur. Cubilia venenatis! Congue iure
-                    curabitur incididunt consequat, volutpat </p>
-                </div>
 
                 <footer class="entry-footer">
 
@@ -370,8 +303,6 @@ $plusinfosseconds = findBeforeLastArticle1('plusinfos');
 
                   <div class="right">
                     <span class="posted-on"><a href="#">22.03.2015</a></span>
-                    <span class="comments-link"><a href="#">5</a></span>
-                    <a class="post-like like-qty voted" data-post_id="154" href="#"><span class="vote-count">1</span></a>
                   </div>
 
                 </footer>
@@ -385,18 +316,13 @@ $plusinfosseconds = findBeforeLastArticle1('plusinfos');
               <div class="post border post-classic slideUp" data-os-animation="slideUpRun" data-os-animation-delay="0s">
 
                 <a href="#" class="image-post item-overlay ">
-                  <img src="images/blog/11_blog.jpg" alt="" />
+                  <img src="images/bipia2.jpg" alt="" />
                 </a>
 
                 <header class="entry-header">
                   <h3 class="entry-title"><a href="#">Ornare, netus,
                       repellendu </a></h3>
                 </header>
-
-                <div class="entry-content">
-                  <p>Porta est iaculis, minim consequatur. Cubilia venenatis! Congue iure
-                    curabitur incididunt consequat, volutpat </p>
-                </div>
 
                 <footer class="entry-footer">
 
@@ -406,8 +332,6 @@ $plusinfosseconds = findBeforeLastArticle1('plusinfos');
 
                   <div class="right">
                     <span class="posted-on"><a href="#">22.03.2015</a></span>
-                    <span class="comments-link"><a href="#">2</a></span>
-                    <a class="post-like like-qty" data-post_id="152" href="#"><span class="vote-count">0</span></a>
                   </div>
 
                 </footer>
@@ -419,11 +343,15 @@ $plusinfosseconds = findBeforeLastArticle1('plusinfos');
           </div>
           <!--/ .post-area-->
 
-          <div class="row post-list full-width">
+          <!-- <div class="row post-list full-width">
 
             <article class="medium-12 large-12 columns">
 
               <div class="post border post-classic elementFade">
+
+                <a href="#" class="image-post item-overlay ">
+                  <img src="images/blog/11_blog.jpg" alt="" width="50%" />
+                </a>
 
                 <header class="entry-header">
                   <h3 class="entry-title"><a href="#">Dictum aliquam pellentesque
@@ -453,11 +381,9 @@ $plusinfosseconds = findBeforeLastArticle1('plusinfos');
 
                 </footer>
               </div>
-              <!--/ .post-extra-->
-
             </article>
 
-          </div>
+          </div> -->
           <!--/ .post-area-->
 
         </div>
@@ -494,55 +420,53 @@ $plusinfosseconds = findBeforeLastArticle1('plusinfos');
     <div class="widget arqam_counter-widget" id="arqam_counter-widget-2">
       <h3 class="widget-title blink_text" style="background:red">Flash Infos</h3>
 
-      <div class="arqam-widget-counter arq-outer-frame arq-col2">
+      <div class="arqam-widget-counter arq-colZ" style="height: 250px">
 
-        <marquee direction="up" behavior="scroll" scrollamount="10">
-          <div class="testimonial">
-            <div class="author-thumb">
-              <img src="images/testimonials/testimonials.jpg" alt="Kathy Kerry">
+        <marquee direction="up" behavior="scroll" scrollamount="5">
+          <?php foreach ($flashs as $flash) :
+          ?>
+            <div class="testimonial container">
+              <div class="author-thumb ">
+                <img src="admin/flashs/images/<?= $flash['img'] ?>" alt="<?= $flash['appeltitre'] ?>" width="100px">
+              </div>
+              <p>
+                <?= $flash['corps'] ?>
+              </p>
             </div>
-
-            <p>
-              Sagittis architecto quo mollitia varius sit. Iusto, voluptates, nostrum minus anim quae viverra
-              risus, cumque deserunt. Tempus cum feugiat sed nemo dui laboris purus, exercitation primis
-              vivamus? Commodo, bibendum reiciendis. Mollis est aute, facere gravida, mus voluptatibus
-              senectus, pede, vitae.
-            </p>
-
-            <div class="quote-meta">Fraternité matin</div>
-          </div>
-
+          <?php endforeach
+          ?>
         </marquee>
-
       </div>
     </div>
 
     <div class="widget widget_upcoming_events">
       <h3 class="widget-title">Evènements à venir</h3>
-      <ul>
-        <li class="has-thumb">
-          <div class="event-container">
-            <span class="event-date">21<b>Mars</b></span>
+      <?php foreach ($events as $event) : ?>
+        <ul>
+          <li class="has-thumb">
+            <div class="event-container">
+              <span class="event-date">21<b>Mars</b></span>
 
-            <div class="event-media">
-              <div class="item-overlay">
-                <img src="images/blog/idm5.jpg" alt="" />
-              </div>
+              <div class="event-media">
+                <div class="item-overlay">
+                  <img src="images/blog/idm5.jpg" alt="" />
+                </div>
 
-              <div class="event-content with-excerpt">
-                <h4 class="event-title">
-                  <a href="#"></a>
-                </h4>
+                <div class="event-content with-excerpt">
+                  <h4 class="event-title">
+                    <a href="#"></a>
+                  </h4>
 
-                <div class="event-text">
-                  Conférence de presse du Premier Ministre Amadou Gon Coulibaly <br>
-                  Jeudi 21 Mars à 10h à la primature
+                  <div class="event-text">
+                    Conférence de presse du Premier Ministre Amadou Gon Coulibaly <br>
+                    Jeudi 21 Mars à 10h à la primature
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-        </li>
-      </ul>
+          </li>
+        </ul>
+      <?php endforeach ?>
     </div>
 
     <div class="widget widget_upcoming_events">
@@ -627,18 +551,16 @@ $plusinfosseconds = findBeforeLastArticle1('plusinfos');
 
 
     <!-- Widget Youtube -->
-    <div class="widget arqam_counter-widget" id="arqam_counter-widget-3">
+    <!-- <div class="widget arqam_counter-widget" id="arqam_counter-widget-3">
       <h3 class="widget-title" style="background:red">Youtube</h3>
       <div class="widget widget_video">
         <div class="image-post">
-          <!-- <iframe width="360" height="150" src="https://www.youtube.com/embed/dIPGQMZAMZg" frameborder="0" 
-              allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>-->
 
           <iframe width="560" height="250" src="https://www.youtube.com/embed/FOsKXJ2aG9g" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         </div>
         <h4 class="widget-title">La FAO & la BAD</h4>
       </div>
-    </div>
+    </div> -->
     <!--/ .widget-container-->
 
 
